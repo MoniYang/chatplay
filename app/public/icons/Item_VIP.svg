@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 841.9 595.3">
+  <!-- Generator: Adobe Illustrator 29.0.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 192)  -->
+  <defs>
+    <style>
+      .st0, .st1 {
+        fill: none;
+      }
+
+      .st2 {
+        fill: #1f1f26;
+      }
+
+      .st1 {
+        stroke: #36363b;
+        stroke-width: 2px;
+      }
+
+      .st3 {
+        fill: #454444;
+        fill-rule: evenodd;
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" x="375.3" y="249.7" width="96" height="96"/>
+    </clipPath>
+  </defs>
+  <g id="Group_85">
+    <g id="Rectangle_78">
+      <rect class="st2" x="359.3" y="235.7" width="124" height="124"/>
+      <rect class="st1" x="360.3" y="236.7" width="122" height="122"/>
+    </g>
+    <g class="st4">
+      <g id="Mask_Group_22">
+        <path id="Crown" class="st3" d="M387.3,339.7l-12-66h12l18,18,12-36h12l12,36,18-18h12l-12,66h-72ZM420.3,303.7l-9,12,9,12h6l9-12-9-12h-6Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

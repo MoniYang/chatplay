@@ -1,0 +1,52 @@
+
+
+[class*="icon-"]::before {
+    content: "";
+    
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-color: white;
+    mask-repeat: no-repeat;
+    mask-origin: margin-box;
+    mask-position: center;
+}
+
+.icon-star::before{
+    mask-image:url('../icons/icon_star.svg');
+}
+.icon-new::before{
+    mask-image:url('../icons/icon_new.svg');
+}
+.icon-Add::before{
+    mask-image:url('../icons/icon_Add.svg');
+}
+.icon-arrow::before{
+    mask-image:url('../icons/icon_Arrow.svg');
+}
+.icon-good:before{
+    mask-image:url('../icons/icon_good.svg');
+}
+
+.icon-game:before {
+    mask-image:url('../icons/icon_game.svg');
+}
+.icon-18:before {
+    mask-image:url('../icons/icon_18.svg');
+}
+
+.icon-menu:before {
+    mask-image:url('../icons/Menu_Menu.svg');
+}
+.icon-home:before {
+    mask-image:url('../icons/Menu_Home.svg');
+}
+.icon-promo::before {
+    mask-image:url('../icons/Menu_Promo.svg');
+}
+.icon-wallet::before {
+    mask-image:url('../icons/Menu_Wallet.svg');
+}
+.icon-profile::before {
+    mask-image:url('../icons/Menu_Profile.svg');
+}

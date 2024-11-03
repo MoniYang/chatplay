@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/icon.css" />
+
+
+    <style type="text/tailwindcss">
+        @layer utilities  {
+    :root {
+
+        --swiper-pagination-color: white;
+        --swiper-pagination-bullet-inactive-color: var(--swiper-pagination-color);
+        --swiper-pagination-bottom: 0;
+
+        --theme-red: #FF0000;
+        --theme-dark-red: #C8102E;
+        --theme-dark-red2: #400000;
+
+        --highlight-green: #03FF00;
+        --highlight-blue:#71c7d4;
+        --highlight-yellow: #FFFF00;
+       
+        --grey:#888888 ;
+        --brown:#400000;
+
+        --dark-grey: #171b24;
+        --info-board: #24232b;
+
+        --black-opacity-1                  : hsla( 0, 0%, 0%, .87 );
+        --black-opacity-2                  : hsla( 0, 0%, 0%, .70 );
+        --black-opacity-3                  : hsla( 0, 0%, 0%, .54 );
+        --black-opacity-4                  : hsla( 0, 0%, 0%, .32 );
+        --black-opacity-5                  : hsla( 0, 0%, 0%, .16 );
+        --black-opacity-6                  : hsla( 0, 0%, 0%, .08 );
+
+        --white-opacity-1                  : hsla( 0, 0%, 100%, .87 );
+        --white-opacity-2                  : hsla( 0, 0%, 100%, .70 );
+        --white-opacity-3                  : hsla( 0, 0%, 100%, .54 );
+        --white-opacity-4                  : hsla( 0, 0%, 100%, .32 );
+        --white-opacity-5                  : hsla( 0, 0%, 100%, .16 );
+        --white-opacity-6                  : hsla( 0, 0%, 100%, .08 );
+    }
+   
+
+    .theme-red {
+        color: var(--theme-red);
+    }
+    .highlight-green {
+        color: var(--highlight-green);
+    }
+    .highlight-blue {
+        color: var(--highlight-cyan);
+    }
+    .highlight-yellow {
+        color: var(--highlight-yellow);
+    }
+    .dark-grey {
+        color: var(--dark-grey);
+    }
+    .dark-red {
+        color: var(--theme-dark-red);
+    }
+    .dark-red2 {
+        color: var(--theme-dark-red2);
+    }
+    .Black-opacity1 {
+        color: var(--black-opacity-1);
+    }
+    .Black-opacity2 {
+        color: var(--black-opacity-2);
+    }
+    .Black-opacity3 {
+        color: var(--black-opacity-3);
+    }
+    .Black-opacity4 {
+        color: var(--black-opacity-4);
+    }
+    .Black-opacity5 {
+        color: var(--black-opacity-5);
+    }
+    .White-opacity1 {
+        color: var(--white-opacity-1);
+    }
+    .White-opacity2 {
+        color: var(--white-opacity-2);
+    }
+    .White-opacity3 {
+        color: var(--white-opacity-3);
+    }
+    .White-opacity4 {
+        color: var(--white-opacity-4);
+    }
+    .White-opacity5 {
+        color: var(--white-opacity-5);
+    }
+    .White-opacity6 {
+        color: var(--white-opacity-6);
+    }
+
+    .special-infoBoard {
+        color: var(--info-board);
+    }
+
+    /* Define hidden and visible classes */
+    .hidden-dropdown {
+    @apply hidden;
+    }
+
+    .visible-dropdown {
+    @apply block;
+        }
+
+        [data-component="dropdown"][data-open="true"] > .dropdown-content {
+  @apply visible-dropdown;
+}
+
+[data-component="dropdown"][data-open="false"] > .dropdown-content {
+  @apply hidden-dropdown;
+}
+}   
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            red: 'var( --theme-red)'
+                        },
+                        highlight: {
+                            green: 'var(--highlight-green)',
+                            darkGreen: 'var(--highlight-dark-green)',
+                            blue: 'var(--highlight-blue)',
+                            yellow: 'var(--highlight-yellow)'
+                        },
+                        dark: {
+                            grey: 'var(--dark-grey)',
+                            red: 'var(--theme-dark-red)',
+                            red2: 'var(--theme-dark-red2)'
+                        },
+                        Black: {
+                            opacity1: 'var(--black-opacity-1)',
+                            opacity2: 'var(--black-opacity-2)',
+                            opacity3: 'var(--black-opacity-3)',
+                            opacity4: 'var(--black-opacity-4)',
+                            opacity5: 'var(--black-opacity-5)'
+                        },
+                        White: {
+                            opacity1: 'var(--white-opacity-1)',
+                            opacity2: 'var(--white-opacity-2)',
+                            opacity3: 'var(--white-opacity-3)',
+                            opacity4: 'var(--white-opacity-4)',
+                            opacity5: 'var(--white-opacity-5)'
+                        },
+                        special: {
+                            infoBoard: 'var(--info-board)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <title></title>
+</head>
+
+
+
+
+
+
+
+
+<body data-layout="desktop" class="flex flex-col min-h-full bg-black">
+
+
+
+
+
+    <header class="flex flex-initial items-center px-4 py-2 min-h-12 bg-theme-red sticky top-0 z-10">
+        <div class="flex flex-1 max-w-[140px]">
+            <img src="../../images/logo_header.svg" alt="">
+        </div>
+
+
+        <div class="flex flex-none ml-2 relative max-w-[60px]" data-component="dropdown" data-open="false">
+
+
+            <button class=" flex flex-none items-center w-fit  before:w-[1px] before:flex before:bg-White-opacity2 before:h-[calc(100%-1rem)] " onclick="toggleDropdown(this)">
+                <img class="w-full max-w-[36px] pl-1.5 pr-1" src="../../images/flag/Lang_EN.svg" alt="">
+                <i class="icon-arrow  before:bg-white before:w-[16px] before:rotate-90"></i>
+            </button>
+            <div class="absolute max-w-[40px]  p-1.5 top-[35px] bg-dark-red2 border border-theme-red dropdown-content">
+                <ul>
+
+                    <li>
+                        <img class="w-full" src="../../images/flag/Lang_EN.svg" alt="">
+                    </li>
+
+                    <li>
+                        <img class="w-full" src="../../images/flag/Lang_JP.svg" alt="">
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex ml-auto space-x-1">
+
+            <div class="flex flex-none items-center px-1 text-sm justify-center border border-white text-white rounded-full text-sm">
+                <span class="px-1.5">1,000,000 </span>
+                <i class="icon-Add before:w-5"></i>
+            </div>
+
+
+            <div class="flex flex-none  w-[28px] h-[28px] border border-white  rounded-full text-sm">
+                <img class="w-fit rounded-full" src="../../images/user.jpg" alt="">
+            </div>
+
+        </div>
+
+
+    </header>
+
+
+    <main class="flex flex-1 flex-col pb-[50px]">
+
+
+        <section class="flex flex-initial min-w-0 min-h-[300px] p-4">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+
+
+
+                    <div class="swiper-slide">
+                        <div class="rounded-tr-2xl">
+                            <img class="rounded-[inherit]" src="../../images/banner/Banner_01.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="rounded-tr-2xl">
+                            <img class="rounded-[inherit]" src="../../images/banner/Banner_02.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="rounded-tr-2xl">
+                            <img class="rounded-[inherit]" src="../../images/banner/Banner_03.jpg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination bottom-0"></div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <i class="icon-star before:bg-highlight-green"></i>
+                <span>TOP 10</span>
+            </h2>
+
+            <div class="flex space-x-3 px-4 overflow-x-auto">
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Top_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <i class="icon-new before:bg-highlight-blue"></i>
+                <span>New</span>
+            </h2>
+
+            <div class="flex space-x-3 px-4 overflow-x-auto">
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_New_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <i class="icon-good before:bg-theme-red"></i>
+                <span>Recommended</span>
+            </h2>
+
+            <div class="flex space-x-3 px-4 overflow-x-auto">
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[180px] h-[140px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/sample/Sample_Recommand_GameIcon.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-md p-4">
+                        <span>Gates of Olympus…</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4">
+                <i class="icon-game before:bg-highlight-yellow"></i>
+                <span>Game Provider</span>
+            </h2>
+
+            <div class="flex space-x-2 p-4 overflow-x-auto">
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+                <div class="max-w-[180px] ">
+                    <div class="rounded-2xl w-[114px] h-[60px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4">
+                        <img class="w-full" src="../../images/sample/Sample_GameProvide.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-initial min-w-0 min-h-[260px] p-4">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+
+
+
+                    <div class="swiper-slide">
+                        <div class="rounded-tr-2xl">
+                            <img class="rounded-[inherit]" src="../../images/banner/Pic_Promo.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="rounded-tr-2xl">
+                            <img class="rounded-[inherit]" src="../../images/banner/Pic_Promo.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="rounded-tr-2xl">
+                            <img class="rounded-[inherit]" src="../../images/banner/Pic_Promo.jpg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination bottom-0"></div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <span>SLOT</span>
+            </h2>
+
+            <div class="flex space-x-2 px-4 overflow-x-auto">
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Slot.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="flex space-x-4 px-4 overflow-x-auto">
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <span>POKER</span>
+            </h2>
+
+            <div class="flex space-x-2 px-4 overflow-x-auto">
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Poker.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="flex space-x-4 px-4 overflow-x-auto">
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <span>FISHING</span>
+            </h2>
+
+            <div class="flex space-x-2 px-4 overflow-x-auto">
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Fishing.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="flex space-x-4 px-4 overflow-x-auto">
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <span>LOTTERY &amp; BINGO</span>
+            </h2>
+
+            <div class="flex space-x-2 px-4 overflow-x-auto">
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Lottery.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="flex space-x-4 px-4 overflow-x-auto">
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col flex-initial min-w-0 mb-4  ">
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
+                <span>SPORT</span>
+            </h2>
+
+            <div class="flex space-x-2 px-4 overflow-x-auto">
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+                <div class="max-w-[114px] ">
+                    <div class="rounded-2xl w-[114px] h-[114px] bg-no-repeat bg-cover bg-center" style='background-image:url("../../images/games/Sample_GameIcon-Sport.jpg")' alt="">
+                    </div>
+                    <div class="flex flex-col text-white text-xs p-2">
+                        <span class="text-white">Piggy Tap</span>
+                        <span class="text-White-opacity4">Pragmatic Play</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="flex space-x-4 px-4 overflow-x-auto">
+
+            </div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-initial p-4 ">
+            <div class="flex flex-1 flex-col min-h-[500px] w-full bg-contain bg-no-repeat bg-left-top bg-special-infoBoard" style="background-image:url('../../images/Pic_InfoBoard.jpg');">
+                <div class="flex flex-1 flex-col justify-end px-3 space-y-4 pb-4">
+                    <h3 class="text-2xl text-White-opacity1">The Best Online Casino<br>Gaming Experience</h3>
+                    <p class="text-White-opacity2 text-xs">ChatPlay is a fully-fledged online casino which goes beyond what the others have to offer. GAMB leads the way in an online gaming since 2014, standing out as the go-to casino for gaming enthusiasts. </p>
+                    <p class="text-White-opacity2 text-xs">Enjoy fast cashouts and 24/7 support that make playing a breeze. Our secure and easy-to-use site gives you a top-notch gaming experience, with a huge selection of games right at your fingertips.</p>
+                    <button class="flex-infinial py-2 text-center bg-theme-red rounded-full text-white text-md">Contact Us</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="flex flex-1 flex-col px-4 py-2  ">
+            <div class="flex flex-1 flex-col justify-center items-ceter max-w-[190px] mx-auto space-y-4 mb-4">
+                <img src="../../images/logo_footer.svg" alt="">
+                <p class="text-xl font-light text-center text-white">Terms and conditions Responsible Gaming AML Policy <br> Restricted jurisdictions<br>Fairness<br>FAQ<br />Support</p>
+                <i class="icon-18 before:bg-white mx-auto before:w-[36px] before:h-[36px]"></i>
+            </div>
+            <p class="text-xs text-white">© 2024 ChatPlay. All rights reserved. ChatPlay.bet is operated by a company registered and established under the laws of Curaçao. Nexus Group Enterprises N.V. is licensed and regulated by AntillePhone N.V. Nexus Group Enterprises N.V.’s registration number is 139781 and its registered address is Dr. M.J. Hugenholzweg 25, Curacao, Unit 17-B.</p>
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="flex flex-1 bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10">
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer">
+            <i class="icon-menu mb-1  "></i>
+            <span class="">Menu</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer">
+            <i class="icon-home mb-1  "></i>
+            <span class="">Home</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer">
+            <i class="icon-promo mb-1  before:w-[36px] before:h-[36px] bg-theme-red rounded-full p-2  absolute top-[-30px]  "></i>
+            <span class=" mt-auto">Promo</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer">
+            <i class="icon-wallet mb-1  "></i>
+            <span class="">Wallet</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer">
+            <i class="icon-profile mb-1  "></i>
+            <span class="">Profile</span>
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../../script/script.js"></script>
+
+</html>

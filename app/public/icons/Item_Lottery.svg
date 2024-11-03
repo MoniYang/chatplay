@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 841.9 595.3">
+  <!-- Generator: Adobe Illustrator 29.0.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 192)  -->
+  <defs>
+    <style>
+      .st0, .st1 {
+        fill: none;
+      }
+
+      .st2 {
+        fill: #921d22;
+      }
+
+      .st1 {
+        stroke: #921d22;
+        stroke-width: 2px;
+      }
+
+      .st3 {
+        fill: #460407;
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="st0" d="M435,332h-61.7v-20.6c7.6,0,13.7-6.1,13.7-13.7s-6.1-13.7-13.7-13.7v-20.6h61.7v17.1h6.9v-17.1h27.4v20.6c-7.6,0-13.7,6.1-13.7,13.7s6.1,13.7,13.7,13.7v20.6h-27.4v-17.1h-6.9v17.1ZM435,287.4v20.6h6.9v-20.6h-6.9Z"/>
+    </clipPath>
+  </defs>
+  <g id="Group_89">
+    <g id="Rectangle_74">
+      <rect class="st3" x="359.3" y="235.7" width="124" height="124"/>
+      <rect class="st1" x="360.3" y="236.7" width="122" height="122"/>
+    </g>
+    <g class="st4">
+      <g id="Mask_Group_13">
+        <rect id="Rectangle_64" class="st2" x="372.7" y="249.6" width="96.7" height="96.7"/>
+      </g>
+    </g>
+  </g>
+</svg>

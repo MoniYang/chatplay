@@ -1,0 +1,22 @@
+
+
+ {% macro dropdown( img, minW , open) %}
+   <div class="flex flex-none ml-2 relative max-w-{{minW}}" data-component="dropdown"  data-open="false">
+    {% set flags = ['EN','JP'] %}
+
+    <button class=" flex flex-none items-center w-fit  before:w-[1px] before:flex before:bg-White-opacity2 before:h-[calc(100%-1rem)] " onclick="toggleDropdown(this)">
+      <img class="w-full max-w-[36px] pl-1.5 pr-1" src="{{img}}/flag/Lang_{{flags[0]}}.svg" alt="">
+      <i class="icon-arrow  before:bg-white before:w-[16px] before:rotate-90"></i>
+    </button>
+    <div class="absolute max-w-[40px]  p-1.5 top-[35px] bg-dark-red2 border border-theme-red dropdown-content" >
+      <ul>
+        {% for item in flags %}
+          <li>
+            <img class="w-full" src="{{img}}/flag/Lang_{{item}}.svg" alt="">
+          </li>
+        {% endfor %}
+       
+      </ul>
+    </div>
+   </div>
+{% endmacro %}
