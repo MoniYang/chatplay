@@ -116,13 +116,17 @@
     @apply block;
         }
 
-        [data-component="dropdown"][data-open="true"] > .dropdown-content {
-  @apply visible-dropdown;
-}
+    [data-component="dropdown"][data-open="true"] > .dropdown-content {
+    @apply visible-dropdown;
+    }
 
-[data-component="dropdown"][data-open="false"] > .dropdown-content {
-  @apply hidden-dropdown;
-}
+    [data-component="dropdown"][data-open="false"] > .dropdown-content {
+    @apply hidden-dropdown;
+    }
+
+    .appItem[data-selected="true"] > i:before {
+    @apply bg-theme-red;
+    }
 }   
     </style>
 
@@ -176,6 +180,7 @@
     {% from 'source/Views/feature/infoBoard.njk' import infoBoard %}
     {% from 'source/Views/feature/promoGame.njk' import promoGame, provider , promoGame2%}
     {% from 'source/Views/layout/footer.njk' import footer_content, footerMenu %}
+    {% from 'source/Views/layout/side_menu.njk' import SideMenu %}
 
 <body data-layout="desktop" class="flex flex-col min-h-full bg-black">
     {% block body %}
@@ -195,7 +200,8 @@
                  
             {% endblock %}
         </main>
-        {% block footer  %}{{ footerMenu()}}{% endblock %}
+        {# {{ SideMenu( img=img ) }} #}
+        {% block footer  %}{{ footerMenu( selected=selected )}}{% endblock %}
     {% endblock %}
 </body>
 
