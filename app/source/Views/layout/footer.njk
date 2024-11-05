@@ -15,16 +15,16 @@
 {% macro footerMenu( selected) %}
   {% set items = [
   { icon:'menu', text:'Menu' },
-  { icon:'home', text:'Home', selected:'true'},
-  { icon:'promo', text:'Promo', promo:'true'},
+  { icon:'home', text:'Home', selected:true },
+  { icon:'promo', text:'Promo', promo:true},
   { icon:'wallet', text:'Wallet'},
   { icon:'profile', text:'Profile'}
   ] %}
     <footer class="flex flex-1 bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10">
       {% for item in items %}
         <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" {%if item.selected !=''%} data-selected="{{ item.selected }}" {% endif %}>
-          <i class="icon-{{item.icon}} mb-1 {% if item.promo == 'true' %} before:w-[32px] before:h-[32px] bg-theme-red rounded-full p-2 border-8 border-black absolute top-[-30px] {% endif %} "></i>
-          <span class="{% if item.promo == 'true' %} mt-auto{% endif %}">{{ item.text}}</span>
+          <i class="icon-{{item.icon}} mb-1 {% if item.promo == true %} before:w-[30px] before:h-[30px] bg-theme-red rounded-full p-2 border-[5px] border-black absolute top-[-30px] {% endif %} "></i>
+          <span class="{% if item.promo == true %}  mt-auto{% endif %}">{{ item.text}}</span>
         </div>
       {% endfor %}
 

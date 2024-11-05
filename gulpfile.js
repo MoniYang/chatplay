@@ -43,7 +43,7 @@ const core_njk               = require("./tasks/njk");
 
 // Asiaview 2022 NJK
 // -------------------------------------------------
-task('c-njk', core_njk.njk);                       // 編譯 Asia Html 靜態頁
+task('njk', core_njk.njk);                       // 編譯 Asia Html 靜態頁
 
 
 
