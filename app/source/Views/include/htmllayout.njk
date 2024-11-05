@@ -107,21 +107,12 @@
         color: var(--info-board);
     }
 
-    /* Define hidden and visible classes */
-    .hidden-dropdown {
-    @apply hidden;
-    }
-
-    .visible-dropdown {
-    @apply block;
-        }
-
     [data-component="dropdown"][data-open="true"] > .dropdown-content {
-    @apply visible-dropdown;
+    @apply visible;
     }
 
     [data-component="dropdown"][data-open="false"] > .dropdown-content {
-    @apply hidden-dropdown;
+    @apply hidden;
     }
 
     .appItem[data-selected="true"] > i:before {
@@ -129,6 +120,12 @@
     }
     .appItem[data-selected="true"] > span {
         @apply text-theme-red;
+    }
+    .side-menu[data-open="true"] {
+        @apply visible;
+    }
+    .side-menu[data-open="false"] {
+        @apply hidden;
     }
 }   
     </style>
@@ -203,7 +200,7 @@
                  
             {% endblock %}
         </main>
-        {# {{ SideMenu( img=img ) }} #}
+        {{ SideMenu( img=img ) }}
         {% block footer  %}{{ footerMenu( selected=selected )}}{% endblock %}
     {% endblock %}
 </body>

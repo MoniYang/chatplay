@@ -50,3 +50,30 @@
 .icon-profile::before {
     mask-image:url('../icons/Menu_Profile.svg');
 }
+.icon-slot::before {
+    mask-image:url('../icons/Item_Slot.svg');
+}
+.icon-live-casino::before {
+    mask-image:url('../icons/Item_LiveCasino.svg');
+}
+.icon-poker::before{
+    mask-image:url('../icons/Item_Poker.svg');
+}
+.icon-fishing::before {
+    mask-image:url('../icons/Item_Fishing.svg');
+}   
+.icon-sport::before {
+    mask-image:url('../icons/Item_Sport.svg');
+}
+.icon-lottery::before {
+    mask-image:url('../icons/Item_Lottery.svg');
+}
+.icon-vip::before {
+    mask-image:url('../icons/Item_VIP.svg');
+}
+.icon-affiliate::before {
+    mask-image:url('../icons/Item_Affiliate.svg');
+}
+.icon-bonus::before {
+    mask-image:url('../icons/Item_Bonus.svg');
+}
