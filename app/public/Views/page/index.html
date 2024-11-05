@@ -128,6 +128,9 @@
     .appItem[data-selected="true"] > i:before {
     @apply bg-theme-red;
     }
+    .appItem[data-selected="true"] > span {
+        @apply text-theme-red;
+    }
 }   
     </style>
 
@@ -198,7 +201,7 @@
         <div class="flex flex-none ml-2 relative max-w-[60px]" data-component="dropdown" data-open="false">
 
 
-            <button class=" flex flex-none items-center w-fit  before:w-[1px] before:flex before:bg-White-opacity2 before:h-[calc(100%-1rem)] " onclick="toggleDropdown(this)">
+            <button class=" flex flex-none items-center w-fit  before:w-[1px] before:flex before:bg-White-opacity2 before:h-[calc(100%-0.5rem)] " onclick="toggleDropdown(this)">
                 <img class="w-full max-w-[36px] pl-1.5 pr-1" src="../../images/flag/Lang_EN.svg" alt="">
                 <i class="icon-arrow  before:bg-white before:w-[16px] before:rotate-90"></i>
             </button>
@@ -1335,8 +1338,8 @@
         </div>
 
         <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="">
-            <i class="icon-promo mb-1  before:w-[32px] before:h-[32px] bg-theme-red rounded-full p-2 border-8 border-black absolute top-[-30px]  "></i>
-            <span class=" mt-auto">Promo</span>
+            <i class="icon-promo mb-1  before:w-[30px] before:h-[30px] bg-theme-red rounded-full p-2 border-[5px] border-black absolute top-[-30px]  "></i>
+            <span class="  mt-auto">Promo</span>
         </div>
 
         <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="">
