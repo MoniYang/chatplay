@@ -108,21 +108,12 @@
         color: var(--info-board);
     }
 
-    /* Define hidden and visible classes */
-    .hidden-dropdown {
-    @apply hidden;
-    }
-
-    .visible-dropdown {
-    @apply block;
-        }
-
     [data-component="dropdown"][data-open="true"] > .dropdown-content {
-    @apply visible-dropdown;
+    @apply visible;
     }
 
     [data-component="dropdown"][data-open="false"] > .dropdown-content {
-    @apply hidden-dropdown;
+    @apply hidden;
     }
 
     .appItem[data-selected="true"] > i:before {
@@ -130,6 +121,12 @@
     }
     .appItem[data-selected="true"] > span {
         @apply text-theme-red;
+    }
+    .side-menu[data-open="true"] {
+        @apply visible;
+    }
+    .side-menu[data-open="false"] {
+        @apply hidden;
     }
 }   
     </style>
@@ -1323,31 +1320,119 @@
 
     </main>
 
+    <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] side-menu" data-open="false">
+        <div class="flex flex-[1 0 auto] w-full h-fit  items-center space-x-4">
+            <div class="flex flex-none w-[48px] h-[48px] border border-white  rounded-full text-sm">
+                <img class="rounded-full" src="../../images/user.jpg" alt="">
+            </div>
+            <div class="flex flex-1 flex-col text-xl ">
+                <span class="text-white font-initial">Hi! UserName</span>
+                <span class="text-theme-red">VIP Lv.2</span>
+            </div>
+            <button class="ml-auto">
+                <i class="icon-arrow before:bg-theme-red"></i>
+            </button>
+        </div>
+        <div class="flex flex-[1 0 auto] py-3 border-t border-b  border-slate-700  font-400 text-white mt-3">
+            <div class="flex flex-1 space-x-1">
+                <span>Balances:</span>
+                <span>$ 1,000,000.00</span>
+            </div>
+            <button class="flex flex-none bg-theme-red px-3 justify-center items-center rounded-full">
+                <span>Deposit</span>
+            </button>
+        </div>
+        <div class="flex flex-1 flex-col  text-lg font-light pb-[80px] overflow-y-auto ">
+
+
+            <div class="flex flex-[1 0 auto] pt-4 text-slate-700 border-t-0">
+                <span>GAMES</span>
+            </div>
+            <div class="pl-4 pt-4 pb-5 space-y-4 text-slate-600 ">
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-slot "></i>
+                    <span>Slot</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-live-casino "></i>
+                    <span>Live Casino</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-poker "></i>
+                    <span>Poker</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-fishing "></i>
+                    <span>Fishing</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-lottery "></i>
+                    <span>Lottery</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-sport "></i>
+                    <span>Sport</span>
+                </div>
+
+            </div>
+
+            <div class="flex flex-[1 0 auto] pt-4 text-slate-700 border-t border-slate-700">
+                <span>MORE</span>
+            </div>
+            <div class="pl-4 pt-4 pb-5 space-y-4 text-slate-600 ">
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-vip "></i>
+                    <span>VIP</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-affiliate "></i>
+                    <span>Affiliate Program</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5">
+                    <i class="before:bg-theme-red before:w-[18px] icon-bonus "></i>
+                    <span>Bonuses</span>
+                </div>
+
+            </div>
+
+
+        </div>
+    </aside>
+
 
 
     <footer class="flex flex-1 bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10">
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="sideMenuOpen()">
             <i class="icon-menu mb-1  "></i>
             <span class="">Menu</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="true">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="true" onclick="">
             <i class="icon-home mb-1  "></i>
             <span class="">Home</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="">
             <i class="icon-promo mb-1  before:w-[30px] before:h-[30px] bg-theme-red rounded-full p-2 border-[5px] border-black absolute top-[-30px]  "></i>
             <span class="  mt-auto">Promo</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="">
             <i class="icon-wallet mb-1  "></i>
             <span class="">Wallet</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="">
             <i class="icon-profile mb-1  "></i>
             <span class="">Profile</span>
         </div>
