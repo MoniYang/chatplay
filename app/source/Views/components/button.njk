@@ -1,11 +1,11 @@
 
 
- {% macro button(text, fontSize) %}
-   <button class="flex-1 py-2 text-center bg-theme-red rounded-full text-white text-{{fontSize}}">{{text}}</button>
+ {% macro button(text, fontSize, flex) %}
+   <button class="{{ flex }} py-2 text-center bg-theme-red rounded-full text-white text-{{fontSize}}">{{text}}</button>
 {% endmacro %}
 
  {% macro buttonBorder(text) %}
-   <button class="flex flex-1 items-center mt-4 py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
+   <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
         <span class="px-1.5">{{text }}</span>
    </button>
 {% endmacro %}

@@ -141,6 +141,18 @@
     .provider[data-open="false"] {
         @apply hidden;
     }
+    .profile[data-open="true"] {
+        @apply visible;
+    }
+    .profile[data-open="false"] {
+        @apply hidden;
+    }
+    .promo[data-open="true"] {
+        @apply visible;
+    }
+    .promo[data-open="false"] {
+        @apply hidden;
+    }
 }   
     </style>
 
@@ -190,6 +202,7 @@
     </script>
     <title></title>
 </head>
+
 
 
 
@@ -1321,7 +1334,7 @@
                     <p class="text-White-opacity2 text-xs">ChatPlay is a fully-fledged online casino which goes beyond what the others have to offer. GAMB leads the way in an online gaming since 2014, standing out as the go-to casino for gaming enthusiasts. </p>
                     <p class="text-White-opacity2 text-xs">Enjoy fast cashouts and 24/7 support that make playing a breeze. Our secure and easy-to-use site gives you a top-notch gaming experience, with a huge selection of games right at your fingertips.</p>
 
-                    <button class="flex-1 py-2 text-center bg-theme-red rounded-full text-white text-">Contact us</button>
+                    <button class="flex-[1 0 auto] py-2 text-center bg-theme-red rounded-full text-white text-">Contact us</button>
 
                 </div>
 
@@ -1567,7 +1580,7 @@
 
 
 
-            <button class="flex flex-1 items-center mt-4 py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
+            <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
                 <span class="px-1.5">MORE</span>
             </button>
 
@@ -1575,7 +1588,7 @@
     </aside>
 
 
-    <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] profile" data-open="false">
+    <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto profile" data-open="false">
 
 
         <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
@@ -1598,7 +1611,7 @@
         </div>
 
 
-        <div class="flex flex-[1 0 auto] flex-col py-3   font-400 text-white ">
+        <div class="flex flex-[1 0 auto] flex-col py-3  font-400 text-white ">
             <div class="flex flex-1">
                 <span class="mr-auto">Balances:</span>
                 <span>$ 1,000,000.00</span>
@@ -1612,9 +1625,9 @@
 
             </div>
         </div>
-        <div class="flex flex-1 flex-col  text-lg font-light pb-[80px] space-y-3 ">
+        <div class="flex flex-1 flex-col space-y-3 py-4">
 
-            <div class="flex flex-1 border-t  border-slate-700 pt-3 mt-3">
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
 
 
                 <div class="flex flex-[1 0 auto] text-white text-xl">
@@ -1658,7 +1671,105 @@
 
             </div>
         </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] text-white text-xl">
+                    VIP Level
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">LEVEL</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">2</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">Cash Back</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">1 %</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">Rebate</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">3 %</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] text-white text-xl">
+                    Referral
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
+                    <span class="px-1.5">Copy</span>
+                </button>
+
+
+                <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
+                    <span class="px-1.5">Share</span>
+                </button>
+
+            </div>
+        </div>
     </aside>
+
+
+    <div class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto promo" data-open="false">
+
+        <ul class="space-y-3">
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_01.jpg" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_02.jpg" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_03.jpg" alt="">
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
 
 
 
@@ -1674,7 +1785,7 @@
             <span class="">Home</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="promoEvent()">
             <i class="icon-promo mb-1  before:w-[30px] before:h-[30px] bg-theme-red rounded-full p-2 border-[5px] border-black absolute top-[-30px]  "></i>
             <span class="  mt-auto">Promo</span>
         </div>
@@ -1684,7 +1795,7 @@
             <span class="">Wallet</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="profileEvent()">
             <i class="icon-profile mb-1  "></i>
             <span class="">Profile</span>
         </div>

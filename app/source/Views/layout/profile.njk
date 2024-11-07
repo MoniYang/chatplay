@@ -2,7 +2,7 @@
  {% from 'source/Views/components/button.njk' import button , buttonBorder %}
   {% from 'source/Views/components/textTitle.njk' import textTitle , textTitleBorder %}
  {% macro profile(img) %}
-   <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] profile" data-open="false">
+   <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto profile" data-open="false">
     
         {% call Card( type="red") %}
         <div class="flex flex-1 flex-col h-fit  items-center justify-center space-x-4">
@@ -16,18 +16,18 @@
         </div>
         {% endcall %}
   
-    <div class="flex flex-[1 0 auto] flex-col py-3   font-400 text-white ">
+    <div class="flex flex-[1 0 auto] flex-col py-3  font-400 text-white ">
         <div class="flex flex-1">
             <span class="mr-auto">Balances:</span>
             <span>$ 1,000,000.00</span>
         </div>
         <div class="flex flex-1 space-x-3 mt-3">
-            {{ button(text='Deposit', fontSize="base") }}
-            {{ button(text='Withdraw', fontSize="base") }}
+            {{ button( flex="flex-1", text='Deposit', fontSize="base") }}
+            {{ button( flex="flex-1", text='Withdraw', fontSize="base") }}
         </div>
     </div>
-    <div class="flex flex-1 flex-col  text-lg font-light pb-[80px] space-y-3 ">
-        {% call textTitleBorder ( className="pt-3 mt-3" ) %}
+    <div class="flex flex-1 flex-col space-y-3 py-4">
+        {% call textTitleBorder ( className="pt-3" ) %}
             {{ textTitle (text="Statistics") }}
         {% endcall %}
         {% call Card( type="black" , text="Total Wagered", text3xl="$ 6,398,204.00" ) %}
@@ -35,6 +35,25 @@
         <div class="flex flex-1 space-x-2">
             {% call Card( type="black" , text="Total Bet", text2xl="$ 1,000K" ) %}{% endcall %}
             {% call Card( type="black" , text="Total Win", text2xl="$ 2,829K" ) %}{% endcall %}
+        </div>
+    </div>
+    <div class="flex flex-1 flex-col space-y-3 py-4">
+        {% call textTitleBorder ( className="pt-3" ) %}
+            {{ textTitle (text="VIP Level") }}
+        {% endcall %}
+         <div class="flex flex-1 space-x-2">
+            {% call Card( type="black" , text="LEVEL", text2xl="2" ) %}{% endcall %}
+            {% call Card( type="black" , text="Cash Back", text2xl="1 %" ) %}{% endcall %}
+            {% call Card( type="black" , text="Rebate", text2xl="3 %" ) %}{% endcall %}
+        </div>
+    </div>
+    <div class="flex flex-1 flex-col space-y-3 py-4">
+        {% call textTitleBorder ( className="pt-3" ) %}
+            {{ textTitle (text="Referral") }}
+        {% endcall %}
+         <div class="flex flex-1 space-x-2">
+            {{buttonBorder(text="Copy")}}
+            {{buttonBorder(text="Share")}}
         </div>
     </div>
    </aside>

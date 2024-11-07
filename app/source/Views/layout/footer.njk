@@ -16,9 +16,9 @@
   {% set items = [
   { icon:'menu', text:'Menu', onclick:'sideMenuOpen()' },
   { icon:'home', text:'Home', selected:true },
-  { icon:'promo', text:'Promo', promo:true},
+  { icon:'promo', text:'Promo', promo:true , onclick:'promoEvent()' },
   { icon:'wallet', text:'Wallet'},
-  { icon:'profile', text:'Profile'}
+  { icon:'profile', text:'Profile', onclick:'profileEvent()'}
   ] %}
     <footer class="flex flex-1 bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10" >
       {% for item in items %}

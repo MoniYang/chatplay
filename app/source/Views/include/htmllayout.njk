@@ -140,6 +140,18 @@
     .provider[data-open="false"] {
         @apply hidden;
     }
+    .profile[data-open="true"] {
+        @apply visible;
+    }
+    .profile[data-open="false"] {
+        @apply hidden;
+    }
+    .promo[data-open="true"] {
+        @apply visible;
+    }
+    .promo[data-open="false"] {
+        @apply hidden;
+    }
 }   
     </style>
 
@@ -202,6 +214,7 @@
     {% from 'source/Views/layout/side_menu.njk' import SideMenu %}
     {% from 'source/Views/layout/providerPage.njk' import providerPage %}
     {% from 'source/Views/layout/profile.njk' import profile %}
+    {% from 'source/Views/layout/promoPage.njk' import promoPage %}
 
 <body data-layout="desktop" class="flex flex-col min-h-full bg-black">
     {% block body %}
@@ -224,6 +237,8 @@
         {{ SideMenu( img=img ) }}
         {% call providerPage (img=img)%}{% endcall %}
         {{ profile(img=img) }}
+        {{ promoPage (img=img) }}
+
         {% block footer  %}{{ footerMenu( selected=selected )}}{% endblock %}
     {% endblock %}
 </body>
