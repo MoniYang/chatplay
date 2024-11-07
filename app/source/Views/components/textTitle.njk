@@ -1,0 +1,14 @@
+
+
+
+ {% macro textTitle( text ) %}
+   <div class="flex flex-[1 0 auto] text-white text-xl">
+        {{ text }}
+   </div>
+{% endmacro %}
+
+{% macro textTitleBorder ( className )%}
+     <div class="flex flex-1 border-t  border-slate-700 {{ className }}">
+          {{ caller ()}}
+     </div>
+{% endmacro %}

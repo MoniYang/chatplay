@@ -89,6 +89,9 @@
     .Black-opacity5 {
         color: var(--black-opacity-5);
     }
+    .Black-opacity6 {
+        color: var(--black-opacity-6);
+    }
     .White-opacity1 {
         color: var(--white-opacity-1);
     }
@@ -138,6 +141,18 @@
     .provider[data-open="false"] {
         @apply hidden;
     }
+    .profile[data-open="true"] {
+        @apply visible;
+    }
+    .profile[data-open="false"] {
+        @apply hidden;
+    }
+    .promo[data-open="true"] {
+        @apply visible;
+    }
+    .promo[data-open="false"] {
+        @apply hidden;
+    }
 }   
     </style>
 
@@ -166,14 +181,16 @@
                             opacity2: 'var(--black-opacity-2)',
                             opacity3: 'var(--black-opacity-3)',
                             opacity4: 'var(--black-opacity-4)',
-                            opacity5: 'var(--black-opacity-5)'
+                            opacity5: 'var(--black-opacity-5)',
+                            opacity6: 'var(--black-opacity-6)'
                         },
                         White: {
                             opacity1: 'var(--white-opacity-1)',
                             opacity2: 'var(--white-opacity-2)',
                             opacity3: 'var(--white-opacity-3)',
                             opacity4: 'var(--white-opacity-4)',
-                            opacity5: 'var(--white-opacity-5)'
+                            opacity5: 'var(--white-opacity-5)',
+                            opacity6: 'var(--white-opacity-6)'
                         },
                         special: {
                             infoBoard: 'var(--info-board)'
@@ -185,6 +202,10 @@
     </script>
     <title></title>
 </head>
+
+
+
+
 
 
 
@@ -1312,163 +1333,15 @@
                     <h3 class="text-2xl text-White-opacity1">The Best Online Casino<br>Gaming Experience</h3>
                     <p class="text-White-opacity2 text-xs">ChatPlay is a fully-fledged online casino which goes beyond what the others have to offer. GAMB leads the way in an online gaming since 2014, standing out as the go-to casino for gaming enthusiasts. </p>
                     <p class="text-White-opacity2 text-xs">Enjoy fast cashouts and 24/7 support that make playing a breeze. Our secure and easy-to-use site gives you a top-notch gaming experience, with a huge selection of games right at your fingertips.</p>
-                    <button class="flex-infinial py-2 text-center bg-theme-red rounded-full text-white text-md">Contact Us</button>
+
+                    <button class="flex-[1 0 auto] py-2 text-center bg-theme-red rounded-full text-white text-">Contact us</button>
+
                 </div>
 
             </div>
 
         </section>
 
-
-        <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] provider" data-open="false">
-            <div class="flex flex-[1 0 auto] w-full h-fit  items-center space-x-4">
-
-                <button class="flex ml-auto items-center justify-center flex-none w-[48px] h-[48px] rounded-full  border border-dark-red3 border-8 provider-close" onclick="prodiverclose()">
-                    <i class=" icon-arrow before:bg-theme-red before:rotate-180"></i>
-                </button>
-                <div class="flex flex-1 flex-col  ">
-                    <span class="text-white font-initial text-xl">Provider Name</span>
-                    <span class="text-theme-red text-xs">360 games</span>
-                </div>
-
-            </div>
-
-            <div class="flex flex-1 flex-wrap text-lg font-light mt-4 pb-[80px] overflow-y-auto ">
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-                <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
-                    <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
-                    <span class="px-4 py-2">Game title..</span>
-                </div>
-
-
-
-                <button class="flex flex-1 items-center mt-4 py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
-                    <span class="px-1.5">MORE </span>
-                </button>
-
-            </div>
-        </aside>
 
 
     </main>
@@ -1562,6 +1435,343 @@
     </aside>
 
 
+    <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] provider" data-open="false">
+        <div class="flex flex-[1 0 auto] w-full h-fit  items-center space-x-4">
+
+            <button class="flex ml-auto items-center justify-center flex-none w-[48px] h-[48px] rounded-full  border border-dark-red3 border-8 provider-close" onclick="prodiverclose()">
+                <i class=" icon-arrow before:bg-theme-red before:rotate-180"></i>
+            </button>
+
+            <div class="flex flex-1 flex-col  ">
+                <span class="text-white font-initial text-xl">Provider Name</span>
+                <span class="text-theme-red text-xs">360 games</span>
+            </div>
+
+
+        </div>
+
+        <div class="flex flex-1 flex-wrap text-lg font-light mt-4 pb-[80px] overflow-y-auto ">
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+
+            <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
+                <span class="px-1.5">MORE</span>
+            </button>
+
+        </div>
+    </aside>
+
+
+    <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto profile" data-open="false">
+
+
+        <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+    border-dark-red bg-dark-red2   ">
+            <span class="text-xs text-White-opacity5"></span>
+            <span class="text-lg text-white"></span>
+            <span class="text-2xl text-white"></span>
+            <span class="text-3xl text-white"></span>
+
+            <div class="flex flex-1 flex-col h-fit  items-center justify-center space-x-4">
+                <div class="flex flex-none w-[48px] h-[48px] border border-white  rounded-full text-sm">
+                    <img class="rounded-full" src="../../images/user.jpg" alt="">
+                </div>
+                <div class="flex flex-[1 0 auto] flex-col  ">
+                    <span class="text-white font-initial text-2xl">UserName</span>
+                    <span class="text-theme-red text-base">TGID: 72947105</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="flex flex-[1 0 auto] flex-col py-3  font-400 text-white ">
+            <div class="flex flex-1">
+                <span class="mr-auto">Balances:</span>
+                <span>$ 1,000,000.00</span>
+            </div>
+            <div class="flex flex-1 space-x-3 mt-3">
+
+                <button class="flex-1 py-2 text-center bg-theme-red rounded-full text-white text-base">Deposit</button>
+
+
+                <button class="flex-1 py-2 text-center bg-theme-red rounded-full text-white text-base">Withdraw</button>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] text-white text-xl">
+                    Statistics
+                </div>
+
+
+            </div>
+
+
+            <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                <span class="text-xs text-White-opacity5">Total Wagered</span>
+                <span class="text-lg text-white"></span>
+                <span class="text-2xl text-white"></span>
+                <span class="text-3xl text-white">$ 6,398,204.00</span>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">Total Bet</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">$ 1,000K</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">Total Win</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">$ 2,829K</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] text-white text-xl">
+                    VIP Level
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">LEVEL</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">2</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">Cash Back</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">1 %</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+
+                <div class="flex flex-1 flex-col  min-h-  items-center justify-center py-2   border  rounded-2xl 
+     bg-White-opacity5 border-White-opacity4  ">
+                    <span class="text-xs text-White-opacity5">Rebate</span>
+                    <span class="text-lg text-white"></span>
+                    <span class="text-2xl text-white">3 %</span>
+                    <span class="text-3xl text-white"></span>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] text-white text-xl">
+                    Referral
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
+                    <span class="px-1.5">Copy</span>
+                </button>
+
+
+                <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm">
+                    <span class="px-1.5">Share</span>
+                </button>
+
+            </div>
+        </div>
+    </aside>
+
+
+    <div class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto promo" data-open="false">
+
+        <ul class="space-y-3">
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_01.jpg" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_02.jpg" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_03.jpg" alt="">
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
 
     <footer class="flex flex-1 bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10">
 
@@ -1575,7 +1785,7 @@
             <span class="">Home</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="promoEvent()">
             <i class="icon-promo mb-1  before:w-[30px] before:h-[30px] bg-theme-red rounded-full p-2 border-[5px] border-black absolute top-[-30px]  "></i>
             <span class="  mt-auto">Promo</span>
         </div>
@@ -1585,7 +1795,7 @@
             <span class="">Wallet</span>
         </div>
 
-        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="">
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="profileEvent()">
             <i class="icon-profile mb-1  "></i>
             <span class="">Profile</span>
         </div>

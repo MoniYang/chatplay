@@ -1,11 +1,11 @@
-var swiper = new Swiper(".mySwiper", {
-    pagination: {
-        el: ".swiper-pagination",
-    },
-  });
+  let swiper = new Swiper(".mySwiper", {
+      pagination: {
+          el: ".swiper-pagination",
+      },
+    });
 
 
-  var PromoGameSwiper = new Swiper(".promoGame", {
+  let PromoGameSwiper = new Swiper(".promoGame", {
     slidesPerView: 'auto',
   });
 
@@ -37,4 +37,24 @@ function prodiverclose() {
   
   const provider = document.querySelector('.provider');
   provider.setAttribute('data-open', 'false');
+}
+
+function profileEvent() {
+  const profile = document.querySelector('.profile');
+  
+  // 檢查目前的 data-open 屬性值
+  const isOpen = profile.getAttribute('data-open') === 'true';
+  
+  // 切換 data-open 屬性
+  profile.setAttribute('data-open', !isOpen);
+}
+
+function promoEvent() {
+  const promo = document.querySelector('.promo');
+  
+  // 檢查目前的 data-open 屬性值
+  const isOpen = promo.getAttribute('data-open') === 'true';
+  
+  // 切換 data-open 屬性
+  promo.setAttribute('data-open', !isOpen);
 }
