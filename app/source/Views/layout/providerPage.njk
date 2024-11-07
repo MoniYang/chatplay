@@ -1,5 +1,6 @@
 
- {% from 'source/Views/components/button.njk' import button %}
+ {% from 'source/Views/components/button.njk' import buttonBorder %}
+
  {% macro providerPage(img) %}
    <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] provider" data-open="false">
     <div class="flex flex-[1 0 auto] w-full h-fit  items-center space-x-4">
@@ -7,10 +8,12 @@
         <button class="flex ml-auto items-center justify-center flex-none w-[48px] h-[48px] rounded-full  border border-dark-red3 border-8 provider-close" onclick="prodiverclose()">
             <i class=" icon-arrow before:bg-theme-red before:rotate-180"></i>
         </button>
+      
         <div class="flex flex-1 flex-col  "> 
             <span class="text-white font-initial text-xl">Provider Name</span>
             <span class="text-theme-red text-xs">360 games</span>
         </div>
+       
         
     </div>
    
@@ -23,7 +26,7 @@
             </div>
          
         {% endfor %}
-     {{button ()}}
+     {{buttonBorder (text="MORE")}}
     </div>
    </aside>
 {% endmacro %}

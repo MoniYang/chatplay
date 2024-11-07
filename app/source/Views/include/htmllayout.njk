@@ -88,6 +88,9 @@
     .Black-opacity5 {
         color: var(--black-opacity-5);
     }
+    .Black-opacity6 {
+        color: var(--black-opacity-6);
+    }
     .White-opacity1 {
         color: var(--white-opacity-1);
     }
@@ -165,14 +168,16 @@
                             opacity2: 'var(--black-opacity-2)',
                             opacity3: 'var(--black-opacity-3)',
                             opacity4: 'var(--black-opacity-4)',
-                            opacity5: 'var(--black-opacity-5)'
+                            opacity5: 'var(--black-opacity-5)',
+                            opacity6: 'var(--black-opacity-6)'
                         },
                         White: {
                             opacity1: 'var(--white-opacity-1)',
                             opacity2: 'var(--white-opacity-2)',
                             opacity3: 'var(--white-opacity-3)',
                             opacity4: 'var(--white-opacity-4)',
-                            opacity5: 'var(--white-opacity-5)'
+                            opacity5: 'var(--white-opacity-5)',
+                            opacity6: 'var(--white-opacity-6)'
                         },
                         special: {
                             infoBoard: 'var(--info-board)'
@@ -185,7 +190,9 @@
     <title>{{ title }}</title>
 </head>
     {% from 'source/Views/components/dropdown.njk' import dropdown %}
-    {% from 'source/Views/components/button.njk' import button %}
+    {% from 'source/Views/components/button.njk' import button , buttonBorder %}
+     {% from 'source/Views/components/textTitle.njk' import textTitle %}
+    {% from 'source/Views/components/card.njk' import Card %}
     {% from 'source/Views/components/stake.njk' import stake, user %}
     {% from 'source/Views/layout/header.njk' import Header %}
     {% from 'source/Views/feature/promo.njk' import promo %}
@@ -194,6 +201,7 @@
     {% from 'source/Views/layout/footer.njk' import footer_content, footerMenu %}
     {% from 'source/Views/layout/side_menu.njk' import SideMenu %}
     {% from 'source/Views/layout/providerPage.njk' import providerPage %}
+    {% from 'source/Views/layout/profile.njk' import profile %}
 
 <body data-layout="desktop" class="flex flex-col min-h-full bg-black">
     {% block body %}
@@ -214,6 +222,8 @@
             {% endblock %}
         </main>
         {{ SideMenu( img=img ) }}
+        {% call providerPage (img=img)%}{% endcall %}
+        {{ profile(img=img) }}
         {% block footer  %}{{ footerMenu( selected=selected )}}{% endblock %}
     {% endblock %}
 </body>
