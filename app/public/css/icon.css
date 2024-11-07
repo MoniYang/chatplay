@@ -18,11 +18,11 @@
 .icon-new::before{
     mask-image:url('../icons/icon_new.svg');
 }
-.icon-Add::before{
-    mask-image:url('../icons/icon_Add.svg');
+.icon-add::before{
+    mask-image:url('../icons/icon_add.svg');
 }
 .icon-arrow::before{
-    mask-image:url('../icons/icon_Arrow.svg');
+    mask-image:url('../icons/icon_arrow.svg');
 }
 .icon-good:before{
     mask-image:url('../icons/icon_good.svg');

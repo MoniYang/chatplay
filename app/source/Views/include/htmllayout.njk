@@ -21,6 +21,7 @@
         --theme-red: #FF0000;
         --theme-dark-red: #C8102E;
         --theme-dark-red2: #400000;
+        --theme-dark-red3: #840000;
 
         --highlight-green: #03FF00;
         --highlight-blue:#71c7d4;
@@ -68,6 +69,9 @@
     }
     .dark-red2 {
         color: var(--theme-dark-red2);
+    }
+    .dark-red3 {
+        color: var(--theme-dark-red3);
     }
     .Black-opacity1 {
         color: var(--black-opacity-1);
@@ -127,6 +131,12 @@
     .side-menu[data-open="false"] {
         @apply hidden;
     }
+    .provider[data-open="true"] {
+        @apply visible;
+    }
+    .provider[data-open="false"] {
+        @apply hidden;
+    }
 }   
     </style>
 
@@ -147,7 +157,8 @@
                         dark:{
                             grey: 'var(--dark-grey)',
                             red: 'var(--theme-dark-red)',
-                            red2: 'var(--theme-dark-red2)'
+                            red2: 'var(--theme-dark-red2)',
+                            red3: 'var(--theme-dark-red3)'
                         },
                         Black: {
                             opacity1: 'var(--black-opacity-1)',
@@ -174,6 +185,7 @@
     <title>{{ title }}</title>
 </head>
     {% from 'source/Views/components/dropdown.njk' import dropdown %}
+    {% from 'source/Views/components/button.njk' import button %}
     {% from 'source/Views/components/stake.njk' import stake, user %}
     {% from 'source/Views/layout/header.njk' import Header %}
     {% from 'source/Views/feature/promo.njk' import promo %}
@@ -181,6 +193,7 @@
     {% from 'source/Views/feature/promoGame.njk' import promoGame, provider , promoGame2%}
     {% from 'source/Views/layout/footer.njk' import footer_content, footerMenu %}
     {% from 'source/Views/layout/side_menu.njk' import SideMenu %}
+    {% from 'source/Views/layout/providerPage.njk' import providerPage %}
 
 <body data-layout="desktop" class="flex flex-col min-h-full bg-black">
     {% block body %}

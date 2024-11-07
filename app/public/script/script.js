@@ -25,3 +25,16 @@ var swiper = new Swiper(".mySwiper", {
     // 切換 data-open 屬性
     sideMenu.setAttribute('data-open', !isOpen);
 }
+
+function prodiverOpen() {
+  const provider = document.querySelector('.provider');
+  
+   // 強制設定 data-open 屬性為 'true'，只管開
+   provider.setAttribute('data-open', 'true');
+}
+
+function prodiverclose() {
+  
+  const provider = document.querySelector('.provider');
+  provider.setAttribute('data-open', 'false');
+}
