@@ -1,9 +1,10 @@
 
 
 
- {% macro textTitle( text ) %}
-   <div class="flex flex-[1 0 auto] text-white text-xl">
-        {{ text }}
+ {% macro textTitle( text , icon='', iconClass ) %}
+   <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+    {% if icon !='' %}<icon class="icon-{{icon}} {{ iconClass }}"></icon>{% endif %}
+     <span>{{ text }}</span>
    </div>
 {% endmacro %}
 

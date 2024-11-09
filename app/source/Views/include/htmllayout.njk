@@ -152,6 +152,12 @@
     .promo[data-open="false"] {
         @apply hidden;
     }
+    .wallet[data-open="true"] {
+        @apply visible;
+    }
+    .wallet[data-open="false"] {
+        @apply hidden;
+    }
 }   
     </style>
 
@@ -215,6 +221,8 @@
     {% from 'source/Views/layout/providerPage.njk' import providerPage %}
     {% from 'source/Views/layout/profile.njk' import profile %}
     {% from 'source/Views/layout/promoPage.njk' import promoPage %}
+    {% from 'source/Views/layout/walletPage.njk' import walletPage %}
+
 
 <body data-layout="desktop" class="flex flex-col min-h-full bg-black">
     {% block body %}
@@ -238,7 +246,7 @@
         {% call providerPage (img=img)%}{% endcall %}
         {{ profile(img=img) }}
         {{ promoPage (img=img) }}
-
+         {% call walletPage (img=img) %}{% endcall %}
         {% block footer  %}{{ footerMenu( selected=selected )}}{% endblock %}
     {% endblock %}
 </body>

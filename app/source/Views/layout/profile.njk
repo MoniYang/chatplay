@@ -22,19 +22,19 @@
             <span>$ 1,000,000.00</span>
         </div>
         <div class="flex flex-1 space-x-3 mt-3">
-            {{ button( flex="flex-1", text='Deposit', fontSize="base") }}
-            {{ button( flex="flex-1", text='Withdraw', fontSize="base") }}
+            {{ button( type="red", className="flex-1 text-base", text='Deposit') }}
+            {{ button( type="red", className="flex-1 text-base", text='Withdraw') }}
         </div>
     </div>
     <div class="flex flex-1 flex-col space-y-3 py-4">
         {% call textTitleBorder ( className="pt-3" ) %}
             {{ textTitle (text="Statistics") }}
         {% endcall %}
-        {% call Card( type="black" , text="Total Wagered", text3xl="$ 6,398,204.00" ) %}
+        {% call Card( type="black" , text="Total Wagered", text3xl="$ 6,398,204.00" , className="py-3" ) %}
         {% endcall %}
         <div class="flex flex-1 space-x-2">
-            {% call Card( type="black" , text="Total Bet", text2xl="$ 1,000K" ) %}{% endcall %}
-            {% call Card( type="black" , text="Total Win", text2xl="$ 2,829K" ) %}{% endcall %}
+            {% call Card( type="black" , text="Total Bet", text2xl="$ 1,000K", className="py-3" ) %}{% endcall %}
+            {% call Card( type="black" , text="Total Win", text2xl="$ 2,829K" , className="py-3" ) %}{% endcall %}
         </div>
     </div>
     <div class="flex flex-1 flex-col space-y-3 py-4">
@@ -42,9 +42,9 @@
             {{ textTitle (text="VIP Level") }}
         {% endcall %}
          <div class="flex flex-1 space-x-2">
-            {% call Card( type="black" , text="LEVEL", text2xl="2" ) %}{% endcall %}
-            {% call Card( type="black" , text="Cash Back", text2xl="1 %" ) %}{% endcall %}
-            {% call Card( type="black" , text="Rebate", text2xl="3 %" ) %}{% endcall %}
+            {% call Card( type="black" , text="LEVEL", text2xl="2", className="py-3" ) %}{% endcall %}
+            {% call Card( type="black" , text="Cash Back", text2xl="1 %" , className="py-3") %}{% endcall %}
+            {% call Card( type="black" , text="Rebate", text2xl="3 %"  , className="py-3") %}{% endcall %}
         </div>
     </div>
     <div class="flex flex-1 flex-col space-y-3 py-4">
@@ -52,8 +52,8 @@
             {{ textTitle (text="Referral") }}
         {% endcall %}
          <div class="flex flex-1 space-x-2">
-            {{buttonBorder(text="Copy")}}
-            {{buttonBorder(text="Share")}}
+            {{button( type="red", text="Copy" , className="flex-1")}}
+            {{button( type="red", text="Share", className="flex-1" )}}
         </div>
     </div>
    </aside>
