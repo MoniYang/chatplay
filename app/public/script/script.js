@@ -1,3 +1,5 @@
+  
+
   let swiper = new Swiper(".mySwiper", {
       pagination: {
           el: ".swiper-pagination",
@@ -87,3 +89,40 @@ function walletEvent() {
   // 切換 data-open 屬性
   wallet.setAttribute('data-open', !isOpen);
 }
+
+const deposit = document.querySelector('[data-page="deposit"]');
+const withdraw = document.querySelector('[data-page="withdraw"]');
+const withdrawButton = document.querySelector('[onclick="withdrawEvent(this)"]'); // Select withdraw button
+const depositButton = document.querySelector('[onclick="depositEvent(this)"]'); // Select deposit button
+deposit.setAttribute('data-open', true);
+depositButton.setAttribute('data-selected', true);
+function depositEvent(button) {
+
+
+ 
+  // Toggle `data-open` attribute values
+  const isOpen = deposit.getAttribute('data-open') === 'true';
+  deposit.setAttribute('data-open', !isOpen);
+  withdraw.setAttribute('data-open', isOpen);
+
+ // Set the `data-selected` attribute on the deposit button and clear it on the withdraw button
+ button.setAttribute('data-selected', true);
+ withdrawButton.setAttribute('data-selected', false);
+
+}
+
+function withdrawEvent(button) {
+  const deposit = document.querySelector('[data-page="deposit"]');
+  const withdraw = document.querySelector('[data-page="withdraw"]');
+
+  // Toggle `data-open` attribute values
+  const isOpen = withdraw.getAttribute('data-open') === 'true';
+  deposit.setAttribute('data-open', isOpen);
+  withdraw.setAttribute('data-open', !isOpen);
+
+ // Set the `data-selected` attribute on the withdraw button and clear it on the deposit button
+ button.setAttribute('data-selected', true);
+ depositButton.setAttribute('data-selected', false);
+
+}
+

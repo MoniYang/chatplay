@@ -158,6 +158,23 @@
     .wallet[data-open="false"] {
         @apply hidden;
     }
+    .wallet button[data-selected="true"] {
+        @apply bg-white text-theme-red border border-theme-red rounded-full ;
+    }
+    [data-page="deposit"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="deposit"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="withdraw"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="withdraw"][data-open="false"] {
+        @apply hidden;
+    }
+
+
 }   
     </style>
 
