@@ -11,7 +11,7 @@
             <span class="text-theme-red">VIP Lv.2</span>
         </div>
         <button class="ml-auto">
-            <i class="icon-arrow before:bg-theme-red"></i>
+            <i class="icon-arrow before:!bg-theme-red"></i>
         </button>
     </div>
     <div class="flex flex-[1 0 auto] py-3 border-t border-b  border-slate-700  font-400 text-white mt-3">
@@ -51,7 +51,7 @@
             <div class="pl-4 pt-4 pb-5 space-y-4 text-slate-600 ">
             {% for subitem in item.items %}
                 <div class="flex flex-1 text-white space-x-2.5">
-                    <i class="before:bg-theme-red before:w-[18px] icon-{{ subitem.icon }} "></i>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-{{ subitem.icon }} "></i>
                     <span>{{ subitem.text }}</span>
                 </div>
             {% endfor %}

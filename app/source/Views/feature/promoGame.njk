@@ -4,7 +4,7 @@
 {% macro promoGame(  promoGame_title="", icon="", img, icon_color ,  sample_img ) %}
    <section class="flex flex-col flex-initial min-w-0 mb-4  ">
         <h2 class=" flex items-center text-2xl space-x-2 text-white px-4 mb-2">
-            <i class="icon-{{icon}} before:bg-{{icon_color}}"></i>
+            <i class="icon-{{icon}} before:!bg-{{icon_color}}"></i>
             <span>{{ promoGame_title }}</span>
         </h2>
         
@@ -47,8 +47,6 @@
                 </div>
             {% endfor %}  
         </div>
-       
-       
         
         <div class="flex space-x-4 px-4 overflow-x-auto">
         {% for item in items -%}
@@ -66,7 +64,7 @@
  {% macro provider(  title="", icon="", img, icon_color , large , sample_img ) %}
    <section class="flex flex-col flex-initial min-w-0 mb-4  ">
         <h2 class=" flex items-center text-2xl space-x-2 text-white px-4">
-            <i class="icon-{{icon}} before:bg-{{icon_color}}"></i>
+            <i class="icon-{{icon}} before:!bg-{{icon_color}}"></i>
             <span>{{ title }}</span>
         </h2>
         

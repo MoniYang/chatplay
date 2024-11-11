@@ -1,6 +1,6 @@
 
 
-[class*="icon-"]::before {
+[class*="icon-"]:not(.icon-currency, .icon-address, .icon-withdraw)::before {
     content: "";
     
     width: 24px;
@@ -76,4 +76,38 @@
 }
 .icon-bonus::before {
     mask-image:url('../icons/Item_Bonus.svg');
+}
+.icon-withdraw::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image:url('../icons/icon_Withdraw.svg');
+}
+.icon-address::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image:url('../icons/icon_address.svg');
+}
+.icon-network::before {
+  
+    mask-image:url('../icons/icon_Network4USDT.svg');
+}
+.icon-deposit::before {
+    mask-image:url('../icons/icon_deposit.svg');
+}
+.icon-currency::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image:url('../icons/icon_Currency.svg');
 }
