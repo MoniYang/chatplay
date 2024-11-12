@@ -114,6 +114,13 @@
         color: var(--info-board);
     }
 
+    .open {
+        @apply transition duration-300 translate-x-0 ease-out;
+    }
+    .close {
+        @apply transition duration-300 -translate-x-full ease-out;
+    }
+
     [data-component="dropdown"][data-open="true"] > .dropdown-content {
     @apply visible;
     }
@@ -129,34 +136,35 @@
         @apply text-theme-red;
     }
     .side-menu[data-open="true"] {
-        @apply visible;
+    @apply open;
     }
     .side-menu[data-open="false"] {
-        @apply hidden;
+    @apply close;
     }
+
     .provider[data-open="true"] {
-        @apply visible;
+        @apply open;
     }
     .provider[data-open="false"] {
-        @apply hidden;
+        @apply close;
     }
     .profile[data-open="true"] {
-        @apply visible;
+        @apply open;
     }
     .profile[data-open="false"] {
-        @apply hidden;
+        @apply close;
     }
     .promo[data-open="true"] {
-        @apply visible;
+        @apply open;
     }
     .promo[data-open="false"] {
-        @apply hidden;
+        @apply close;
     }
     .wallet[data-open="true"] {
-        @apply visible;
+        @apply open;
     }
     .wallet[data-open="false"] {
-        @apply hidden;
+        @apply close;
     }
     .wallet button[data-selected="true"] {
         @apply bg-white text-theme-red border border-theme-red rounded-full ;

@@ -20,7 +20,12 @@
 
   function sideMenuOpen() {
     const sideMenu = document.querySelector('.side-menu');
-    
+    const allElements = document.querySelectorAll('[data-open]');
+  allElements.forEach((el) => {
+    if (!el.classList.contains('.side-menu') && !el.classList.contains('.side-menu')) {
+      el.setAttribute('data-open', 'false');
+  }
+});
     // 檢查目前的 data-open 屬性值
     const isOpen = sideMenu.getAttribute('data-open') === 'true';
     
@@ -58,10 +63,22 @@ function prodiverclose() {
   
   const provider = document.querySelector('.provider');
   provider.setAttribute('data-open', 'false');
+  const allElements = document.querySelectorAll('[data-open]');
+  allElements.forEach((el) => {
+    if (!el.classList.contains('provider') && !el.classList.contains('provider')) {
+      el.setAttribute('data-open', 'false');
+  }
+});
 }
 
 function profileEvent() {
   const profile = document.querySelector('.profile');
+  const allElements = document.querySelectorAll('[data-open]');
+  allElements.forEach((el) => {
+    if (!el.classList.contains('profile') && !el.classList.contains('profile')) {
+      el.setAttribute('data-open', 'false');
+  }
+});
   
   // 檢查目前的 data-open 屬性值
   const isOpen = profile.getAttribute('data-open') === 'true';
@@ -73,6 +90,12 @@ function profileEvent() {
 function promoEvent() {
   const promo = document.querySelector('.promo');
   
+  const allElements = document.querySelectorAll('[data-open]');
+  allElements.forEach((el) => {
+    if (!el.classList.contains('promo') && !el.classList.contains('promo')) {
+      el.setAttribute('data-open', 'false');
+  }
+});
   // 檢查目前的 data-open 屬性值
   const isOpen = promo.getAttribute('data-open') === 'true';
   
@@ -82,7 +105,12 @@ function promoEvent() {
 
 function walletEvent() {
   const wallet = document.querySelector('.wallet');
-  
+  const allElements = document.querySelectorAll('[data-open]');
+  allElements.forEach((el) => {
+    if (!el.classList.contains('wallet') && !el.classList.contains('wallet')) {
+      el.setAttribute('data-open', 'false');
+  }
+});
   // 檢查目前的 data-open 屬性值
   const isOpen = wallet.getAttribute('data-open') === 'true';
   
@@ -97,8 +125,6 @@ const depositButton = document.querySelector('[onclick="depositEvent(this)"]'); 
 deposit.setAttribute('data-open', true);
 depositButton.setAttribute('data-selected', true);
 function depositEvent(button) {
-
-
  
   // Toggle `data-open` attribute values
   const isOpen = deposit.getAttribute('data-open') === 'true';
