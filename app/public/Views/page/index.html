@@ -182,7 +182,18 @@
     [data-page="withdraw"][data-open="false"] {
         @apply hidden;
     }
-
+    [data-page="statement"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="statement"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="betHistory"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="betHistory"][data-open="false"] {
+        @apply hidden;
+    }
 
 }   
     </style>
@@ -1903,13 +1914,13 @@
                 <button class="py-2 text-center 
    text-white bg-theme-red  rounded-full  
     
-     flex-1 text-base " onclick="">Statement</button>
+     flex-1 text-base " data-selected=false onclick="statementEvent(this)">Statement</button>
 
 
                 <button class="py-2 text-center 
    text-white bg-theme-red  rounded-full  
     
-     flex-1 text-base " onclick="">Bet History</button>
+     flex-1 text-base " data-selected=false onclick="betHistoryEvent(this)">Bet History</button>
 
 
             </div>
@@ -1917,7 +1928,7 @@
         <div class="flex flex-1 flex-col   border-t  border-slate-700">
 
 
-            <div class="flex flex-1 flex-col" data-page="deposit" data-open="true">
+            <div class="flex flex-1 flex-col" data-page="deposit" data-open="open">
                 <div class="flex flex-1 flex-col space-y-2 py-3">
 
 
@@ -2130,7 +2141,7 @@
 
 
 
-            <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white">
+            <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white" data-page="statement" data-open="false">
                 <div class="flex flex-none bg-theme-red  py-2">
 
                     <div class="flex-[0 0 auto] text-center w-3/12 font-bold">
@@ -2348,22 +2359,261 @@
                     </div>
 
                 </div>
+                <div class="flex flex-1 space-x-3 mt-4">
 
-            </section>
-            <div class="flex flex-1 space-x-3">
-
-                <button class="py-2 text-center 
+                    <button class="py-2 text-center 
    text-white bg-theme-red  rounded-full  
     
      flex-1 text-base " data-selected=false>Next</button>
 
 
-                <button class="py-2 text-center 
+                    <button class="py-2 text-center 
    text-white bg-theme-red  rounded-full  
     
      flex-1 text-base " data-selected=false>Prev</button>
 
-            </div>
+                </div>
+
+            </section>
+
+
+
+
+            <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white" data-page="betHistory" data-open="false">
+                <div class="flex flex-none bg-theme-red  py-2">
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 font-bold">
+                        <span class="flex-1">Time</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 font-bold">
+                        <span class="flex-1">Type</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 font-bold">
+                        <span class="flex-1">Amount</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 font-bold">
+                        <span class="flex-1">Balance</span>
+                    </div>
+
+                </div>
+                <div class="flex flex-1 flex-col">
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-1 space-x-3 mt-4">
+
+                    <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false>Next</button>
+
+
+                    <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false>Prev</button>
+
+                </div>
+
+            </section>
+
 
         </div>
     </aside>

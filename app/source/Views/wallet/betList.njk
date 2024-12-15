@@ -1,7 +1,7 @@
 
  {% from 'source/Views/components/button.njk' import button , buttonBorder %}
 
- {% macro betList() %}
+ {% macro betList(page, open) %}
  {% set tableContent = {
         header: ['Time', 'Type', 'Amount', 'Balance'],
         rows: [
@@ -22,7 +22,7 @@
             ]
         } 
     %}
-   <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white">
+   <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white" data-page="{{page}}"  data-open="{{open}}">
         <div class="flex flex-none bg-theme-red  py-2">
             {% for header in tableContent.header %}
                 <div class="flex-[0 0 auto] text-center w-3/12 font-bold">
@@ -48,10 +48,11 @@
                 </div>
             {% endfor %}
         </div>
+         <div class="flex flex-1 space-x-3 mt-4">
+            {{ button( type="red",  text='Next', className="flex-1 text-base", Click="", selected="false" ) }}
+            {{ button( type="red",  text='Prev', className="flex-1 text-base", Click="", selected="false" ) }}
+        </div>
     
    </section>
-   <div class="flex flex-1 space-x-3">
-        {{ button( type="red",  text='Next', className="flex-1 text-base", Click="", selected="false" ) }}
-        {{ button( type="red",  text='Prev', className="flex-1 text-base", Click="", selected="false" ) }}
-    </div>
+  
 {% endmacro %}

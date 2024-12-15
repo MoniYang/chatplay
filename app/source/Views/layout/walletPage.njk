@@ -4,7 +4,7 @@
   {% from 'source/Views/components/textTitle.njk' import textTitle , textTitleBorder %}
     {% from 'source/Views/wallet/deposit.njk' import deposit %}
     {% from 'source/Views/wallet/widthdraw.njk' import widthdraw %}
-     {% from 'source/Views/feature/betList.njk' import betList %}
+     {% from 'source/Views/wallet/betList.njk' import betList %}
  {% macro walletPage(img) %}
    <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto wallet" data-open="false">
     
@@ -21,8 +21,8 @@
             
             </div>
             <div class="flex flex-1 space-x-3 ">
-                {{ button( type="red", text='Statement', className="flex-1 text-base") }}
-                {{ button( type="red",  text='Bet History', className="flex-1 text-base") }}
+                {{ button( type="red", text='Statement', className="flex-1 text-base" , Click="statementEvent(this)",selected="false") }}
+                {{ button( type="red",  text='Bet History', className="flex-1 text-base" ,Click="betHistoryEvent(this)", selected="false" ) }}
             
             </div>
         </div>
@@ -30,7 +30,8 @@
           
             {{ deposit ()  }}
             {{ widthdraw ()  }}
-            {{ betList ()  }}
+            {{ betList (page='statement', open="false")  }}
+            {{ betList (page='betHistory' , open="false")  }}
         </div>
    </aside>
 {% endmacro %}

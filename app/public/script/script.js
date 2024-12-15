@@ -120,35 +120,80 @@ function walletEvent() {
 
 const deposit = document.querySelector('[data-page="deposit"]');
 const withdraw = document.querySelector('[data-page="withdraw"]');
+const betHistory = document.querySelector('[data-page="betHistory"]');
+const statement = document.querySelector('[data-page="statement"]');
 const withdrawButton = document.querySelector('[onclick="withdrawEvent(this)"]'); // Select withdraw button
 const depositButton = document.querySelector('[onclick="depositEvent(this)"]'); // Select deposit button
-deposit.setAttribute('data-open', true);
+const statementButton = document.querySelector('[onclick="statementEvent(this)"]'); // Select statemnet button
+const betHistoryButton = document.querySelector('[onclick="betHistoryEvent(this)"]'); // Select deposit button
+// deposit.setAttribute('data-open', true);
 depositButton.setAttribute('data-selected', true);
+
 function depositEvent(button) {
  
   // Toggle `data-open` attribute values
   const isOpen = deposit.getAttribute('data-open') === 'true';
   deposit.setAttribute('data-open', !isOpen);
   withdraw.setAttribute('data-open', isOpen);
+  statement.setAttribute('data-open', isOpen);
+  betHistory.setAttribute('data-open', isOpen);
 
  // Set the `data-selected` attribute on the deposit button and clear it on the withdraw button
  button.setAttribute('data-selected', true);
  withdrawButton.setAttribute('data-selected', false);
+ betHistoryButton.setAttribute('data-selected', false);
+ statementButton.setAttribute('data-selected', false);
 
 }
 
 function withdrawEvent(button) {
-  const deposit = document.querySelector('[data-page="deposit"]');
-  const withdraw = document.querySelector('[data-page="withdraw"]');
+  // const deposit = document.querySelector('[data-page="deposit"]');
+  // const withdraw = document.querySelector('[data-page="withdraw"]');
 
   // Toggle `data-open` attribute values
   const isOpen = withdraw.getAttribute('data-open') === 'true';
   deposit.setAttribute('data-open', isOpen);
   withdraw.setAttribute('data-open', !isOpen);
+  statement.setAttribute('data-open', isOpen);
+  betHistory.setAttribute('data-open', isOpen);
 
  // Set the `data-selected` attribute on the withdraw button and clear it on the deposit button
  button.setAttribute('data-selected', true);
  depositButton.setAttribute('data-selected', false);
+ betHistoryButton.setAttribute('data-selected', false);
+ statementButton.setAttribute('data-selected', false);
 
 }
 
+
+function statementEvent(button) {
+
+  // Toggle `data-open` attribute values
+  const isOpen = statement.getAttribute('data-open') === 'true';
+  statement.setAttribute('data-open', !isOpen);
+  deposit.setAttribute('data-open', isOpen);
+  betHistory.setAttribute('data-open', isOpen);
+  withdraw.setAttribute('data-open', isOpen);
+
+ // Set the `data-selected` attribute on the withdraw button and clear it on the deposit button
+ button.setAttribute('data-selected', true);
+ depositButton.setAttribute('data-selected', false);
+ withdrawButton.setAttribute('data-selected', false);
+ betHistoryButton.setAttribute('data-selected', false);
+}
+
+function betHistoryEvent(button) {
+
+  // Toggle `data-open` attribute values
+  const isOpen = betHistory.getAttribute('data-open') === 'true';
+  betHistory.setAttribute('data-open', !isOpen);
+  deposit.setAttribute('data-open', isOpen);
+  statement.setAttribute('data-open', isOpen);
+  withdraw.setAttribute('data-open', isOpen);
+
+ // Set the `data-selected` attribute on the withdraw button and clear it on the deposit button
+ button.setAttribute('data-selected', true);
+ depositButton.setAttribute('data-selected', false);
+ withdrawButton.setAttribute('data-selected', false);
+ statementButton.setAttribute('data-selected', false);
+}
