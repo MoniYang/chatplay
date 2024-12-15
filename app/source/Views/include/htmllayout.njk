@@ -181,7 +181,18 @@
     [data-page="withdraw"][data-open="false"] {
         @apply hidden;
     }
-
+    [data-page="statement"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="statement"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="betHistory"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="betHistory"][data-open="false"] {
+        @apply hidden;
+    }
 
 }   
     </style>
@@ -266,13 +277,16 @@
             {% block content %}
                  
             {% endblock %}
+             {{footer_content(img=img)}}
         </main>
         {{ SideMenu( img=img ) }}
         {% call providerPage (img=img)%}{% endcall %}
         {{ profile(img=img) }}
         {{ promoPage (img=img) }}
          {% call walletPage (img=img) %}{% endcall %}
-        {% block footer  %}{{ footerMenu( selected=selected )}}{% endblock %}
+        {% block footer  %}
+       
+        {{ footerMenu( selected=selected )}}{% endblock %}
     {% endblock %}
 </body>
 

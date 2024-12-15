@@ -52,6 +52,15 @@
             {{ textTitle (text="Referral") }}
         {% endcall %}
          <div class="flex flex-1 space-x-2">
+            {% call Card( type="black" , text="Number of Referrals ", text2xl="6", className="p-3 flex-1" ) %}{% endcall %}
+            {% call Card( type="black" , text="Referral Bonus", text2xl="$60" , className="p-3 flex-1") %}{% endcall %}
+        </div>
+    </div>
+    <div class="flex flex-1 flex-col space-y-3 py-4">
+        {% call textTitleBorder ( className="pt-3" ) %}
+            {{ textTitle (text="Referral") }}
+        {% endcall %}
+         <div class="flex flex-1 space-x-2">
             {{button( type="red", text="Copy" , className="flex-1")}}
             {{button( type="red", text="Share", className="flex-1" )}}
         </div>
