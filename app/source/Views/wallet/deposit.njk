@@ -1,5 +1,6 @@
 
 {% from 'source/Views/components/card.njk' import Card %}
+{% from 'source/Views/components/dropdown.njk' import dropdown2 %}
  {% from 'source/Views/components/button.njk' import button , buttonBorder %}
   {% from 'source/Views/components/textTitle.njk' import textTitle , textTitleBorder %}
 
@@ -7,7 +8,7 @@
    <div class="flex flex-1 flex-col" data-page="deposit" data-open="open">
         <div class="flex flex-1 flex-col space-y-2 py-3">
         
-            {{ textTitle (text="Select Currency") }}
+            {{ textTitle (text="Select Currency", icon='currency' ) }}
         
             <div class="flex flex-1 space-x-2">
                 {{ button( type="" , border='black', text="TON", className='text-lg flex-1' )}}
@@ -16,6 +17,10 @@
                 {{ button( type="" , border='black', text="CUSD", className='text-lg  flex-1' )}}
                 {{ button( type="" , border='black', text="NOT", className='text-lg  flex-1' )}}
             </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-2 py-3">
+            {{ textTitle (text="Promo Plan", icon='promoPlan' ) }}
+            {{ dropdown2(  maxW="100%") }}
         </div>
         <div class="flex flex-1 flex-col space-y-2 py-3">
             {{ textTitle (text="Deposit Amount") }}

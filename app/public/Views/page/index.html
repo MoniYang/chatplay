@@ -1875,7 +1875,7 @@
     </div>
 
 
-    <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto wallet" data-open="false">
+    <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto wallet" data-open="true">
 
 
         <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl  flex-[1 0 auto] py-8
@@ -1933,7 +1933,7 @@
 
 
                     <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
-
+                        <icon class="icon-currency "></icon>
                         <span>Select Currency</span>
                     </div>
 
@@ -1970,6 +1970,42 @@
      text-lg  flex-1 " onclick="">NOT</button>
 
                     </div>
+                </div>
+                <div class="flex flex-1 flex-col space-y-2 py-3">
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+                        <icon class="icon-promoPlan "></icon>
+                        <span>Promo Plan</span>
+                    </div>
+
+
+                    <div class="flex flex-1 relative max-w-full" data-component="dropdown" data-open="false">
+
+                        <button class=" flex flex-1 text-left px-2 items-center relative z-[2] w-fit border text-white min-h-[48px] bg-White-opacity5 border-White-opacity5 rounded-lg   " onclick="toggleDropdown(this)">
+                            <span class="flex-1 px-1">USD</span>
+                            <i class="icon-arrow  before:!bg-white before:!w-[16px] before:!rotate-90"></i>
+                        </button>
+                        <div class="flex absolute max-w-full  text-white p-1.5 top-[46px] right-0 left-0 bg-zinc-900 rounded-b-lg border-White-opacity5 border border-top-0 dropdown-content">
+                            <ul class="flex-1 p-2 space-y-1.5">
+
+                                <li class="flex-1 ">
+                                    <span class="flex-1">USD</span>
+
+                                </li>
+                                <li class="flex-1">
+                                    <span class="flex-1">USD</span>
+
+                                </li>
+                                <li class="flex-1">
+                                    <span class="flex-1">USD</span>
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="flex flex-1 flex-col space-y-2 py-3">
 
