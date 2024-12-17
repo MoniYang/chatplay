@@ -1,6 +1,6 @@
 
 
-[class*="icon-"]:not(.icon-currency, .icon-address, .icon-withdraw)::before {
+[class*="icon-"]:not(.icon-currency, .icon-address, .icon-withdraw ,.icon-promoPlan)::before {
     content: "";
     
     width: 24px;
@@ -110,4 +110,13 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-image:url('../icons/icon_Currency.svg');
+}
+.icon-promoPlan::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image:url('../icons/icon_promoPlan.svg');
 }
