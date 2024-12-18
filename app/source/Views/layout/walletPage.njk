@@ -6,7 +6,7 @@
     {% from 'source/Views/wallet/widthdraw.njk' import widthdraw %}
      {% from 'source/Views/wallet/betList.njk' import betList,bethistory %}
  {% macro walletPage(img) %}
-   <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto wallet" data-open="true">
+   <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto wallet" data-open="false">
     
         {% call Card( type="red" , text2xl='$ 1,000,000.00' , icon2xl='wallet', className=" flex-[1 0 auto] py-8") %}
         
