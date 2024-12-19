@@ -167,6 +167,19 @@
     .wallet[data-open="false"] {
         @apply close;
     }
+    .VIPPage[data-open="true"] {
+        @apply open;
+    }
+    .VIPPage[data-open="false"] {
+        @apply close;
+    }
+    .slot[data-open="true"] {
+        @apply open;
+    }
+    .slot[data-open="false"] {
+        @apply close;
+    }
+    
     .wallet button[data-selected="true"] {
         @apply bg-white text-theme-red border border-theme-red rounded-full ;
     }
@@ -192,6 +205,18 @@
         @apply visible;
     }
     [data-page="betHistory"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="VIPPage"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="VIPPage"][data-open="false"] {
+        @apply hidden;
+    }
+     [data-page="slot"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="slot"][data-open="false"] {
         @apply hidden;
     }
 
