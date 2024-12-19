@@ -127,7 +127,7 @@ const depositButton = document.querySelector('[onclick="depositEvent(this)"]'); 
 const statementButton = document.querySelector('[onclick="statementEvent(this)"]'); // Select statemnet button
 const betHistoryButton = document.querySelector('[onclick="betHistoryEvent(this)"]'); // Select deposit button
 // deposit.setAttribute('data-open', true);
-depositButton.setAttribute('data-selected', true);
+// depositButton.setAttribute('data-selected', true);
 
 function depositEvent(button) {
  
@@ -197,3 +197,24 @@ function betHistoryEvent(button) {
  withdrawButton.setAttribute('data-selected', false);
  statementButton.setAttribute('data-selected', false);
 }
+
+
+const menuSlot = document.querySelector('[data-menu-item="slot"]');
+const menuPageSlot = document.querySelector('.slot');
+
+menuSlot.addEventListener('click', function () {
+  menuPageSlot.setAttribute('data-open', 'true');
+  const sideMenu = document.querySelector('.side-menu');
+  sideMenu.setAttribute('data-open', 'false');
+});
+
+const menuVIP = document.querySelector('[data-menu-item="vip"]');
+const menuPageVIP = document.querySelector('.VIPPage');
+
+
+
+menuVIP.addEventListener('click', function () {
+  menuPageVIP.setAttribute('data-open', 'true');
+  const sideMenu = document.querySelector('.side-menu');
+  sideMenu.setAttribute('data-open', 'false');
+});

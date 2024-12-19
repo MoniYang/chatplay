@@ -48,11 +48,11 @@
             <div class="flex flex-[1 0 auto] pt-4 text-slate-700 {{ 'border-t-0' if loop.first else 'border-t border-slate-700' }}">
                 <span>{{ item.title }}</span>
             </div>
-            <div class="pl-4 pt-4 pb-5 space-y-4 text-slate-600 ">
+            <div class="flex flex-1 flex-col pl-4 pt-4 pb-5 space-y-4 text-slate-600 ">
             {% for subitem in item.items %}
-                <div class="flex flex-1 text-white space-x-2.5">
+                <div class="flex flex-1 text-white space-x-2.5"  data-menu-item={{subitem.icon}}>
                     <i class="before:!bg-theme-red before:!w-[18px] icon-{{ subitem.icon }} "></i>
-                    <span>{{ subitem.text }}</span>
+                    <span class="flex-1">{{ subitem.text }}</span>
                 </div>
             {% endfor %}
             </div>

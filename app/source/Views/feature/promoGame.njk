@@ -61,14 +61,16 @@
    </section>
 {% endmacro %}
 
- {% macro provider(  title="", icon="", img, icon_color , large , sample_img ) %}
-   <section class="flex flex-col flex-initial min-w-0 mb-4  ">
-        <h2 class=" flex items-center text-2xl space-x-2 text-white px-4">
-            <i class="icon-{{icon}} before:!bg-{{icon_color}}"></i>
-            <span>{{ title }}</span>
-        </h2>
+ {% macro provider(  title="", icon="", img, icon_color , large , sample_img , classNameContent, classNameList='p-4') %}
+   <section class="flex flex-col flex-initial min-w-0 mb-4 {{classNameContent}}">
+        {% if title =="true" %}
+            <h2 class=" flex items-center text-2xl space-x-2 text-white px-4">
+                <i class="icon-{{icon}} before:!bg-{{icon_color}}"></i>
+                <span>{{ title }}</span>
+            </h2>
+        {%endif%}
         
-        <div class="flex space-x-2 p-4 overflow-x-auto">
+        <div class="flex space-x-2  overflow-x-auto {{ classNameList }}">
         {% for i in range(0, 10) -%}
             <div class="max-w-[180px] " onclick="prodiverOpen()">
                 <div class="rounded-2xl w-[100px] h-[50px] bg-no-repeat bg-contain bg-center bg-dark-grey p-4" >
