@@ -114,7 +114,12 @@
     .special-infoBoard {
         color: var(--info-board);
     }
-
+    .modal[data-open="false"] {
+        @apply  opacity-0 invisible;
+    }
+    .modal[data-open="true"] {
+        @apply  opacity-100 visible;
+    }
     .open {
         @apply transition duration-300 translate-x-0 ease-out;
     }
@@ -269,9 +274,6 @@
     </script>
     <title></title>
 </head>
-
-
-
 
 
 

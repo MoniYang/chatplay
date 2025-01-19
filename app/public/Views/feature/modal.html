@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/icon.css" />
+
+
+    <style type="text/tailwindcss">
+        @layer utilities  {
+    :root {
+
+        --swiper-pagination-color: white;
+        --swiper-pagination-bullet-inactive-color: var(--swiper-pagination-color);
+        --swiper-pagination-bottom: 0;
+
+        --theme-red: #FF0000;
+        --theme-dark-red: #C8102E;
+        --theme-dark-red2: #400000;
+        --theme-dark-red3: #840000;
+
+        --highlight-green: #03FF00;
+        --highlight-blue:#71c7d4;
+        --highlight-yellow: #FFFF00;
+       
+        --grey:#888888 ;
+        --brown:#400000;
+
+        --dark-grey: #171b24;
+        --info-board: #24232b;
+
+        --black-opacity-1                  : hsla( 0, 0%, 0%, .87 );
+        --black-opacity-2                  : hsla( 0, 0%, 0%, .70 );
+        --black-opacity-3                  : hsla( 0, 0%, 0%, .54 );
+        --black-opacity-4                  : hsla( 0, 0%, 0%, .32 );
+        --black-opacity-5                  : hsla( 0, 0%, 0%, .16 );
+        --black-opacity-6                  : hsla( 0, 0%, 0%, .08 );
+
+        --white-opacity-1                  : hsla( 0, 0%, 100%, .87 );
+        --white-opacity-2                  : hsla( 0, 0%, 100%, .70 );
+        --white-opacity-3                  : hsla( 0, 0%, 100%, .54 );
+        --white-opacity-4                  : hsla( 0, 0%, 100%, .32 );
+        --white-opacity-5                  : hsla( 0, 0%, 100%, .16 );
+        --white-opacity-6                  : hsla( 0, 0%, 100%, .08 );
+    }
+   
+
+    .theme-red {
+        color: var(--theme-red);
+    }
+    .highlight-green {
+        color: var(--highlight-green);
+    }
+    .highlight-blue {
+        color: var(--highlight-cyan);
+    }
+    .highlight-yellow {
+        color: var(--highlight-yellow);
+    }
+    .dark-grey {
+        color: var(--dark-grey);
+    }
+    .dark-red {
+        color: var(--theme-dark-red);
+    }
+    .dark-red2 {
+        color: var(--theme-dark-red2);
+    }
+    .dark-red3 {
+        color: var(--theme-dark-red3);
+    }
+    .Black-opacity1 {
+        color: var(--black-opacity-1);
+    }
+    .Black-opacity2 {
+        color: var(--black-opacity-2);
+    }
+    .Black-opacity3 {
+        color: var(--black-opacity-3);
+    }
+    .Black-opacity4 {
+        color: var(--black-opacity-4);
+    }
+    .Black-opacity5 {
+        color: var(--black-opacity-5);
+    }
+    .Black-opacity6 {
+        color: var(--black-opacity-6);
+    }
+    .White-opacity1 {
+        color: var(--white-opacity-1);
+    }
+    .White-opacity2 {
+        color: var(--white-opacity-2);
+    }
+    .White-opacity3 {
+        color: var(--white-opacity-3);
+    }
+    .White-opacity4 {
+        color: var(--white-opacity-4);
+    }
+    .White-opacity5 {
+        color: var(--white-opacity-5);
+    }
+    .White-opacity6 {
+        color: var(--white-opacity-6);
+    }
+
+    .special-infoBoard {
+        color: var(--info-board);
+    }
+    .modal[data-open="false"] {
+        @apply  opacity-0 invisible;
+    }
+    .modal[data-open="true"] {
+        @apply  opacity-100 visible;
+    }
+    .open {
+        @apply transition duration-300 translate-x-0 ease-out;
+    }
+    .close {
+        @apply transition duration-300 -translate-x-full ease-out;
+    }
+
+    [data-component="dropdown"][data-open="true"] > .dropdown-content {
+    @apply visible;
+    }
+
+    [data-component="dropdown"][data-open="false"] > .dropdown-content {
+    @apply hidden;
+    }
+
+    .appItem[data-selected="true"] > i:before {
+    @apply bg-theme-red;
+    }
+    .appItem[data-selected="true"] > span {
+        @apply text-theme-red;
+    }
+    .side-menu[data-open="true"] {
+    @apply open;
+    }
+    .side-menu[data-open="false"] {
+    @apply close;
+    }
+
+    .provider[data-open="true"] {
+        @apply open;
+    }
+    .provider[data-open="false"] {
+        @apply close;
+    }
+    .profile[data-open="true"] {
+        @apply open;
+    }
+    .profile[data-open="false"] {
+        @apply close;
+    }
+    .promo[data-open="true"] {
+        @apply open;
+    }
+    .promo[data-open="false"] {
+        @apply close;
+    }
+    .wallet[data-open="true"] {
+        @apply open;
+    }
+    .wallet[data-open="false"] {
+        @apply close;
+    }
+    .VIPPage[data-open="true"] {
+        @apply open;
+    }
+    .VIPPage[data-open="false"] {
+        @apply close;
+    }
+    .slot[data-open="true"] {
+        @apply open;
+    }
+    .slot[data-open="false"] {
+        @apply close;
+    }
+    
+    .wallet button[data-selected="true"] {
+        @apply bg-white text-theme-red border border-theme-red rounded-full ;
+    }
+    [data-page="deposit"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="deposit"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="withdraw"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="withdraw"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="statement"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="statement"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="betHistory"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="betHistory"][data-open="false"] {
+        @apply hidden;
+    }
+    [data-page="VIPPage"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="VIPPage"][data-open="false"] {
+        @apply hidden;
+    }
+     [data-page="slot"][data-open="true"] {
+        @apply visible;
+    }
+    [data-page="slot"][data-open="false"] {
+        @apply hidden;
+    }
+
+}   
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            red: 'var( --theme-red)'
+                        },
+                        highlight: {
+                            green: 'var(--highlight-green)',
+                            darkGreen: 'var(--highlight-dark-green)',
+                            blue: 'var(--highlight-blue)',
+                            yellow: 'var(--highlight-yellow)'
+                        },
+                        dark: {
+                            grey: 'var(--dark-grey)',
+                            red: 'var(--theme-dark-red)',
+                            red2: 'var(--theme-dark-red2)',
+                            red3: 'var(--theme-dark-red3)'
+                        },
+                        Black: {
+                            opacity1: 'var(--black-opacity-1)',
+                            opacity2: 'var(--black-opacity-2)',
+                            opacity3: 'var(--black-opacity-3)',
+                            opacity4: 'var(--black-opacity-4)',
+                            opacity5: 'var(--black-opacity-5)',
+                            opacity6: 'var(--black-opacity-6)'
+                        },
+                        White: {
+                            opacity1: 'var(--white-opacity-1)',
+                            opacity2: 'var(--white-opacity-2)',
+                            opacity3: 'var(--white-opacity-3)',
+                            opacity4: 'var(--white-opacity-4)',
+                            opacity5: 'var(--white-opacity-5)',
+                            opacity6: 'var(--white-opacity-6)'
+                        },
+                        special: {
+                            infoBoard: 'var(--info-board)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <title></title>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body data-layout="desktop" class="flex flex-col min-h-full bg-black">
+
+
+
+
+
+    <header class="flex flex-initial items-center px-4 py-2 min-h-12 bg-theme-red sticky top-0 z-20">
+        <div class="flex flex-1 max-w-[140px]">
+            <img src="../../images/logo_header.svg" alt="">
+        </div>
+
+
+        <div class="flex flex-none ml-2 relative max-w-[60px]" data-component="dropdown" data-open="false">
+
+
+            <button class=" flex flex-none items-center w-fit  before:w-[1px] before:flex before:bg-White-opacity2 before:h-[calc(100%-0.5rem)] " onclick="toggleDropdown(this)">
+                <img class="w-full max-w-[36px] pl-1.5 pr-1" src="../../images/flag/Lang_EN.svg" alt="">
+                <i class="icon-arrow  before:!bg-white before:!w-[16px] before:!rotate-90"></i>
+            </button>
+            <div class="absolute max-w-[40px]  p-1.5 top-[35px] bg-dark-red2 border border-theme-red dropdown-content">
+                <ul>
+
+                    <li>
+                        <img class="w-full" src="../../images/flag/Lang_EN.svg" alt="">
+                    </li>
+
+                    <li>
+                        <img class="w-full" src="../../images/flag/Lang_JP.svg" alt="">
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex ml-auto space-x-1">
+
+            <button class="flex flex-none items-center px-1 text-sm justify-center border border-white text-white rounded-full text-sm">
+                <span class="px-1.5">1,000,000 </span>
+                <i class="icon-add before:!w-5"></i>
+            </button>
+
+
+            <div class="flex flex-none  w-[28px] h-[28px] border border-white  rounded-full text-sm">
+                <img class="w-fit rounded-full" src="../../images/user.jpg" alt="">
+            </div>
+
+        </div>
+
+
+    </header>
+
+
+    <main class="flex flex-1 flex-col pb-[50px]">
+
+
+        <div class="flex flex-1 min-w-0 min-h-[300px] p-4 bg-Black-opacity1 fixed right-0 top-0 left-0 bottom-0 z-10 transition modal" data-open="true">
+            <div class="flex flex-1 flex-col  translate-y-[15%]">
+                <div class="flex-non max-h-[260px] min-h-[260px] overflow-y-auto max-w-[320px]  mx-auto p-4 text-white bg-black border rounded-2xl   border-dark-red  ">
+                    <p>
+                        Why do we use it?
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                    </p>
+                </div>
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     mt-4 " ≈>OK</button>
+
+            </div>
+        </div>
+
+
+
+
+        <section class="flex flex-1 flex-col px-4 py-2  ">
+            <div class="flex flex-1 flex-col justify-center items-ceter max-w-[190px] mx-auto space-y-4 mb-4">
+                <img src="../../images/logo_footer.svg" alt="">
+                <p class="text-xl font-light text-center text-white">Terms and conditions Responsible Gaming AML Policy <br> Restricted jurisdictions<br>Fairness<br>FAQ<br />Support</p>
+                <i class="icon-18 before:bg-white mx-auto before:w-[36px] before:h-[36px]"></i>
+            </div>
+            <p class="text-xs text-white">© 2024 ChatPlay. All rights reserved. ChatPlay.bet is operated by a company registered and established under the laws of Curaçao. Nexus Group Enterprises N.V. is licensed and regulated by AntillePhone N.V. Nexus Group Enterprises N.V.’s registration number is 139781 and its registered address is Dr. M.J. Hugenholzweg 25, Curacao, Unit 17-B.</p>
+
+        </section>
+
+    </main>
+
+    <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] side-menu" data-open="false">
+        <div class="flex flex-[1 0 auto] w-full h-fit  items-center space-x-4">
+            <div class="flex flex-none w-[48px] h-[48px] border border-white  rounded-full text-sm">
+                <img class="rounded-full" src="../../images/user.jpg" alt="">
+            </div>
+            <div class="flex flex-1 flex-col text-xl ">
+                <span class="text-white font-initial">Hi! UserName</span>
+                <span class="text-theme-red">VIP Lv.2</span>
+            </div>
+            <button class="ml-auto">
+                <i class="icon-arrow before:!bg-theme-red"></i>
+            </button>
+        </div>
+        <div class="flex flex-[1 0 auto] py-3 border-t border-b  border-slate-700  font-400 text-white mt-3">
+            <div class="flex flex-1 space-x-1">
+                <span>Balances:</span>
+                <span>$ 1,000,000.00</span>
+            </div>
+            <button class="flex flex-none bg-theme-red px-3 justify-center items-center rounded-full">
+                <span>Deposit</span>
+            </button>
+        </div>
+        <div class="flex flex-1 flex-col  text-lg font-light pb-[80px] overflow-y-auto ">
+
+
+            <div class="flex flex-[1 0 auto] pt-4 text-slate-700 border-t-0">
+                <span>GAMES</span>
+            </div>
+            <div class="flex flex-1 flex-col pl-4 pt-4 pb-5 space-y-4 text-slate-600 ">
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=slot>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-slot "></i>
+                    <span class="flex-1">Slot</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=live-casino>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-live-casino "></i>
+                    <span class="flex-1">Live Casino</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=poker>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-poker "></i>
+                    <span class="flex-1">Poker</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=fishing>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-fishing "></i>
+                    <span class="flex-1">Fishing</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=lottery>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-lottery "></i>
+                    <span class="flex-1">Lottery</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=sport>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-sport "></i>
+                    <span class="flex-1">Sport</span>
+                </div>
+
+            </div>
+
+            <div class="flex flex-[1 0 auto] pt-4 text-slate-700 border-t border-slate-700">
+                <span>MORE</span>
+            </div>
+            <div class="flex flex-1 flex-col pl-4 pt-4 pb-5 space-y-4 text-slate-600 ">
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=vip>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-vip "></i>
+                    <span class="flex-1">VIP</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=affiliate>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-affiliate "></i>
+                    <span class="flex-1">Affiliate Program</span>
+                </div>
+
+                <div class="flex flex-1 text-white space-x-2.5" data-menu-item=bonus>
+                    <i class="before:!bg-theme-red before:!w-[18px] icon-bonus "></i>
+                    <span class="flex-1">Bonuses</span>
+                </div>
+
+            </div>
+
+
+        </div>
+    </aside>
+
+
+    <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto provider" data-open="false">
+        <div class="flex flex-[1 0 auto] w-full h-fit  items-center space-x-4">
+
+            <button class="flex ml-auto items-center justify-center flex-none w-[48px] h-[48px] rounded-full  border border-dark-red3 border-8 provider-close" onclick="prodiverclose()">
+                <i class=" icon-arrow before:bg-theme-red before:rotate-180"></i>
+            </button>
+
+            <div class="flex flex-1 flex-col  ">
+                <span class="text-white font-initial text-xl">Provider Name</span>
+                <span class="text-theme-red text-xs">360 games</span>
+            </div>
+
+
+        </div>
+
+        <div class="flex flex-1 flex-wrap text-lg font-light mt-4 pb-[80px]  ">
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+            <div class="flex flex-none flex-col  w-[33.3%] h-[126px] flex-wrap px-1.5 text-xs text-white">
+                <div class="flex flex-1 rounded-2xl bg-repeat bg-cover bg-center" style="background-image: url(../../images/games/Sample_GameIcon-Fishing.jpg); "></div>
+                <span class="px-4 py-2">Game title..</span>
+            </div>
+
+
+
+            <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm mt-2">
+                <span class="px-1.5">MORE</span>
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+    <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto profile" data-open="false">
+
+
+        <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl 
+    border-dark-red bg-dark-red2   ">
+
+
+
+
+
+
+            <div class="flex flex-1 flex-col h-fit  items-center justify-center space-x-4 py-4">
+                <div class="flex flex-none w-[48px] h-[48px] border border-white  rounded-full text-sm">
+                    <img class="rounded-full" src="../../images/user.jpg" alt="">
+                </div>
+                <div class="flex flex-[1 0 auto] flex-col  ">
+                    <span class="text-white font-initial text-2xl">UserName</span>
+                    <span class="text-theme-red text-base">TGID: 72947105</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="flex flex-[1 0 auto] flex-col py-3  font-400 text-white ">
+            <div class="flex flex-1">
+                <span class="mr-auto">Balances:</span>
+                <span>$ 1,000,000.00</span>
+            </div>
+            <div class="flex flex-1 space-x-3 mt-3">
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " ≈>Deposit</button>
+
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " ≈>Withdraw</button>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+
+                    <span>Statistics</span>
+                </div>
+
+
+            </div>
+
+
+            <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                <span class="text-xs text-White-opacity5">Total Wagered</span>
+
+
+                <span class="text-3xl text-white">$ 6,398,204.00</span>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                    <span class="text-xs text-White-opacity5">Total Bet</span>
+
+                    <span class="text-2xl text-white">$ 1,000K</span>
+
+
+                </div>
+
+
+                <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                    <span class="text-xs text-White-opacity5">Total Win</span>
+
+                    <span class="text-2xl text-white">$ 2,829K</span>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+
+                    <span>VIP Level</span>
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                    <span class="text-xs text-White-opacity5">LEVEL</span>
+
+                    <span class="text-2xl text-white">2</span>
+
+
+                </div>
+
+
+                <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                    <span class="text-xs text-White-opacity5">Cash Back</span>
+
+                    <span class="text-2xl text-white">1 %</span>
+
+
+                </div>
+
+
+                <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                    <span class="text-xs text-White-opacity5">Rebate</span>
+
+                    <span class="text-2xl text-white">3 %</span>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+
+                    <span>Referral</span>
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                    <span class="text-xs text-White-opacity5">Number of Referrals </span>
+
+                    <span class="text-2xl text-white">6</span>
+
+
+                </div>
+
+
+                <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl p-3 flex-1
+     bg-White-opacity5 border-White-opacity4  ">
+
+                    <span class="text-xs text-White-opacity5">Referral Bonus</span>
+
+                    <span class="text-2xl text-white">$60</span>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-4">
+
+            <div class="flex flex-1 border-t  border-slate-700 pt-3">
+
+
+                <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+
+                    <span>Referral</span>
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-1 space-x-2">
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 " ≈>Copy</button>
+
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 " ≈>Share</button>
+
+            </div>
+        </div>
+    </aside>
+
+
+    <div class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto promo" data-open="false">
+
+        <ul class="space-y-3">
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_01.jpg" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_02.jpg" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="../../images/promo/Sample_Promo_03.jpg" alt="">
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto wallet" data-open="false">
+
+
+        <div class="flex  flex-col  min-h-  items-center justify-center  border  rounded-2xl  flex-[1 0 auto] py-8
+    border-dark-red bg-dark-red2   ">
+            <i class="icon-wallet before:!w-[72px] before:!h-[72px]"></i>
+
+
+            <span class="text-2xl text-white">$ 1,000,000.00</span>
+
+
+
+
+        </div>
+
+
+
+        <div class="flex flex-[1 0 auto] flex-col py-4 space-y-4 font-400 text-white ">
+
+            <div class="flex flex-1 space-x-3">
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false ≈>Deposit</button>
+
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false ≈>Withdraw</button>
+
+
+            </div>
+            <div class="flex flex-1 space-x-3 ">
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false ≈>Statement</button>
+
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false ≈>Bet History</button>
+
+
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col   border-t  border-slate-700">
+
+
+            <div class="flex flex-1 flex-col" data-page="deposit" data-open="open">
+                <div class="flex flex-1 flex-col space-y-2 py-3">
+
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+                        <icon class="icon-currency "></icon>
+                        <span>Select Currency</span>
+                    </div>
+
+
+                    <div class="flex flex-1 space-x-2">
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-lg flex-1 " ≈>TON</button>
+
+
+                        <button class="py-2 text-center 
+    
+    
+     text-lg flex-1 " data-selected=true ≈>USDT</button>
+
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-lg flex-1 " ≈>BTC</button>
+
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-lg  flex-1 " ≈>CUSD</button>
+
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-lg  flex-1 " ≈>NOT</button>
+
+                    </div>
+                </div>
+                <div class="flex flex-1 flex-col space-y-2 py-3">
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+                        <icon class="icon-promoPlan "></icon>
+                        <span>Promo Plan</span>
+                    </div>
+
+
+                    <div class="flex flex-1 relative max-w-full" data-component="dropdown" data-open="false">
+
+                        <button class=" flex flex-1 text-left px-2 items-center relative z-[2] w-fit border text-white min-h-[48px] bg-White-opacity5 border-White-opacity5 rounded-lg   " onclick="toggleDropdown(this)">
+                            <span class="flex-1 px-1">USD</span>
+                            <i class="icon-arrow  before:!bg-white before:!w-[16px] before:!rotate-90"></i>
+                        </button>
+                        <div class="flex absolute max-w-full  text-white p-1.5 top-[46px] right-0 left-0 bg-zinc-900 rounded-b-lg border-White-opacity5 border border-top-0 dropdown-content">
+                            <ul class="flex-1 p-2 space-y-1.5">
+
+                                <li class="flex-1 ">
+                                    <span class="flex-1">USD</span>
+
+                                </li>
+                                <li class="flex-1">
+                                    <span class="flex-1">USD</span>
+
+                                </li>
+                                <li class="flex-1">
+                                    <span class="flex-1">USD</span>
+
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-1 flex-col space-y-2 py-3">
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+
+                        <span>Deposit Amount</span>
+                    </div>
+
+                    <div class="flex flex-1 space-x-2">
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-lg flex-1 " ≈>5</button>
+
+
+                        <button class="py-2 text-center 
+    
+    
+     text-xl flex-1 " data-selected=true ≈>25</button>
+
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-lg flex-1 " ≈>50</button>
+
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-lg  flex-1 " ≈>100</button>
+
+
+                    </div>
+                    <div class="flex flex-1 space-x-2">
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-xl flex-1 " ≈>150</button>
+
+
+                        <button class="py-2 text-center 
+    
+    
+     text-xl flex-1 " data-selected=true ≈>200</button>
+
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-xl flex-1 " ≈>250</button>
+
+
+                        <button class="py-2 text-center 
+    
+   border text-white  bg-White-opacity5 border-White-opacity4 rounded-full  
+     text-xl flex-1 " ≈>500</button>
+
+
+                    </div>
+                </div>
+                <div class="flex flex-1 flex-col space-y-3 py-3">
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+                        <icon class="icon-wallet before:bg-theme-red"></icon>
+                        <span>Payment Method</span>
+                    </div>
+
+                    <div class="flex flex-1 space-x-2">
+
+                        <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     text-base flex-1 " ≈>@wallet</button>
+
+
+                        <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     text-base flex-1 " ≈>@Cryptobot</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flex flex-1 flex-col" data-page="withdraw" data-open="false">
+                <div class="flex flex-1 flex-col space-y-2 py-3">
+
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+                        <icon class="icon-currency "></icon>
+                        <span>Select Currency</span>
+                    </div>
+
+
+                    <div class="flex flex-1 space-x-2">
+
+                        <button class="py-2 text-center 
+    
+    
+     text-lg flex-none px-2 " data-selected=true ≈>USDT</button>
+
+                    </div>
+                </div>
+                <div class="flex flex-1 flex-col space-y-2 py-3">
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+                        <icon class="icon-address "></icon>
+                        <span>TRC-20 Address</span>
+                    </div>
+
+                    <div class="flex flex-1">
+
+                        <div class="flex-1 flex border text-white rounded-xl bg-White-opacity5 border-White-opacity4 px-2 ">
+                            <input class="flex-1 rounded-xl py-2 bg-transparent outline-none " type="text" placeholder="">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="flex flex-1 flex-col space-y-3 py-3">
+
+                    <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+                        <icon class="icon-withdraw "></icon>
+                        <span>Withdraw Amount (Min: 1)</span>
+                    </div>
+
+                    <div class="flex flex-1">
+
+                        <div class="flex-1 flex-1 max-h-[40px] min-w-0  flex border text-white rounded-xl bg-White-opacity5 border-White-opacity4 px-2 ">
+                            <input class="flex-1 rounded-xl py-2 bg-transparent outline-none " type="text" placeholder="">
+
+                            <div class="flex flex-1 items-center space-x-2">
+
+                                <button class="py-0 text-center 
+    
+    
+     text-base flex-none bg-White-opacity5 px-1  rounded-lg my-0.5 " ≈>25%</button>
+
+
+                                <button class="py-0 text-center 
+    
+    
+     text-base flex-none bg-White-opacity5 px-1 rounded-lg my-0.5 " ≈>50%</button>
+
+
+
+                                <button class="py-0 text-center 
+    
+    
+     text-base flex-none bg-White-opacity5 px-1  rounded-lg my-0.5 " ≈>100%</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base mt-2 " ≈>Withdraw</button>
+
+            </div>
+
+
+
+            <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white" data-page="statement" data-open="false">
+                <div class="flex flex-none bg-theme-red  py-2">
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 ">
+                        <span class="flex-1">Time</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 ">
+                        <span class="flex-1">Type</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 ">
+                        <span class="flex-1">Amount</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12 ">
+                        <span class="flex-1">Balance</span>
+                    </div>
+
+                </div>
+                <div class="flex flex-1 flex-col">
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-1 space-x-3 mt-4">
+
+                    <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false>Next</button>
+
+
+                    <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false>Prev</button>
+
+                </div>
+
+            </section>
+
+
+
+
+            <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white" data-page="betHistory" data-open="false">
+                <div class="flex flex-none bg-theme-red  py-2">
+
+                    <div class="flex-[0 0 auto] text-center w-3/12">
+                        <span class="flex-1">Time</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12">
+                        <span class="flex-1">Game</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12">
+                        <span class="flex-1">Bet</span>
+                    </div>
+
+                    <div class="flex-[0 0 auto] text-center w-3/12">
+                        <span class="flex-1">W/L</span>
+                    </div>
+
+                </div>
+                <div class="flex flex-1 flex-col">
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">10</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">19.5</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">10</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">60</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">60</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">160</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">400</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">300</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">300</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">72</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">2</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">10</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 21:58:17</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Deposit</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">500</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">560</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">20240103 22:25:47</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">Transfer Out</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">2</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">0</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-1 space-x-3 mt-4">
+
+                    <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false>Next</button>
+
+
+                    <button class="py-2 text-center 
+   text-white bg-theme-red  rounded-full  
+    
+     flex-1 text-base " data-selected=false>Prev</button>
+
+                </div>
+
+            </section>
+
+
+        </div>
+    </aside>
+
+
+
+
+
+    <footer class="flex flex-none bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10">
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="sideMenuOpen()">
+            <i class="icon-menu mb-1  "></i>
+            <span class="">Menu</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="true" onclick="homeEvent()">
+            <i class="icon-home mb-1  "></i>
+            <span class="">Home</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="promoEvent()">
+            <i class="icon-promo mb-1  before:w-[30px] before:h-[30px] bg-theme-red rounded-full p-2 border-[5px] border-black absolute top-[-30px]  "></i>
+            <span class="  mt-auto">Promo</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="walletEvent()">
+            <i class="icon-wallet mb-1  "></i>
+            <span class="">Wallet</span>
+        </div>
+
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="profileEvent()">
+            <i class="icon-profile mb-1  "></i>
+            <span class="">Profile</span>
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../../script/script.js"></script>
+
+</html>

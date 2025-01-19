@@ -113,7 +113,12 @@
     .special-infoBoard {
         color: var(--info-board);
     }
-
+    .modal[data-open="false"] {
+        @apply  opacity-0 invisible;
+    }
+    .modal[data-open="true"] {
+        @apply  opacity-100 visible;
+    }
     .open {
         @apply transition duration-300 translate-x-0 ease-out;
     }
@@ -286,9 +291,6 @@
     {% from 'source/Views/layout/gameCategory.njk' import gameCategory %}
     {% from 'source/Views/layout/VIPPage.njk' import VIPPage %}
    
-    
-    
-
 
 <body data-layout="desktop" class="flex flex-col min-h-full bg-black">
     {% block body %}

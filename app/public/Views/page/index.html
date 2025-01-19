@@ -114,7 +114,12 @@
     .special-infoBoard {
         color: var(--info-board);
     }
-
+    .modal[data-open="false"] {
+        @apply  opacity-0 invisible;
+    }
+    .modal[data-open="true"] {
+        @apply  opacity-100 visible;
+    }
     .open {
         @apply transition duration-300 translate-x-0 ease-out;
     }
@@ -288,16 +293,13 @@
 
 
 
-
-
-
 <body data-layout="desktop" class="flex flex-col min-h-full bg-black">
 
 
 
 
 
-    <header class="flex flex-initial items-center px-4 py-2 min-h-12 bg-theme-red sticky top-0 z-10">
+    <header class="flex flex-initial items-center px-4 py-2 min-h-12 bg-theme-red sticky top-0 z-20">
         <div class="flex flex-1 max-w-[140px]">
             <img src="../../images/logo_header.svg" alt="">
         </div>
@@ -3100,7 +3102,7 @@
 
 
 
-    <footer class="flex flex-1 bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10">
+    <footer class="flex flex-none bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10">
 
         <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" data-selected="" onclick="sideMenuOpen()">
             <i class="icon-menu mb-1  "></i>
